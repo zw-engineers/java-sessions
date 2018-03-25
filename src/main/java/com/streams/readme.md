@@ -33,3 +33,12 @@ So a Stream is:
 * An `Object` that should not change the data it processes.
 * An `Object` that is able to process data in `one pass`.
     e.g. `.map(n -> n.getNames()).filter(name -> name.startsWith("A").reduce(....)`
+    
+## How can we build a Stream?
+
+- There are many patterns but a simple way to create a Stream would be below:
+        
+    ```java
+    List<Person> persons = ...;
+    Stream<Person> stream = persons.stream();
+    ```
