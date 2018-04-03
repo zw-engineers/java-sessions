@@ -2,7 +2,7 @@ package com.streams;
 
 import java.util.stream.IntStream;
 
-public class Sum {
+public class SumArrays {
 
   public static int arrayPlusArray(int[] arr1, int[] arr2) {
       // LESS PERFECT
