@@ -52,6 +52,8 @@ So a Stream is:
     - Here that `Consumer<T>` prints out all the elements in the persons `List`. 
     - The `forEach(Consumer<T>)` takes an instance of Consumer as an argument.
 
+## Building and Consuming a Stream
+
 ### Let's look at the `Consumer<T>` interface
 
 ```java
