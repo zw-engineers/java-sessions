@@ -96,8 +96,8 @@ chain consumers!
 ```java
 List<String> list = new ArrayList<>();
 
-Consumer<String> c1 = s -> list.add(s);
-Consumer<String> c2 = s -> System.out.println(s);
+Consumer<String> c1 = s -> list.add(s); // or s -> list::add(s);
+Consumer<String> c2 = s -> System.out.println(s); // or s -> System.out::println;
 
 // we can chain both consumers as below:
 Consumer<String> c3 = c1.andThen(c2);
