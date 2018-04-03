@@ -45,3 +45,48 @@ So a Stream is:
     List<Person> persons = ...;
     Stream<Person> stream = persons.stream();
     ```
+- So calling `persons.stream()` will open a stream on a `List<Person>`.
+
+### What can we do with it?
+- We can call the `forEach(Consumer<T>)` defined e.g. `stream.forEach(p -> System.out.println(p)`.
+    - Here that `Consumer<T>` prints out all the elements in the persons `List`. 
+    - The `forEach(Consumer<T>)` takes an instance of Consumer as an argument.
+
+### Let's look at the `Consumer<T>` interface
+
+```java
+@FunctionalInterface
+public interface Consumer<T> {
+
+    /**
+     * Performs this operation on the given argument.
+     *
+     * @param t the input argument
+     */
+    void accept(T t);
+
+    /**
+     * Returns a composed {@code Consumer} that performs, in sequence, this
+     * operation followed by the {@code after} operation. If performing either
+     * operation throws an exception, it is relayed to the caller of the
+     * composed operation.  If performing this operation throws an exception,
+     * the {@code after} operation will not be performed.
+     *
+     * @param after the operation to perform after this operation
+     * @return a composed {@code Consumer} that performs in sequence this
+     * operation followed by the {@code after} operation
+     * @throws NullPointerException if {@code after} is null
+     */
+    default Consumer<T> andThen(Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> { accept(t); after.accept(t); };
+    }
+}
+```
+- `Consumer<T>` is a _functional interface_.
+- Can be implemented by a lambda expression.
+    - `Consumer<T> c = p -> System.out.println(p);`
+- Also be executed as a method reference as an alternative
+    - `Consumer<T> c = p -> System.out::println; //method reference`
+- The `default Consumer<T> andThen(Consumer<? super T> after)` method allows us to 
+chain consumers!
