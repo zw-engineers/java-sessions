@@ -110,3 +110,5 @@ Consumer<String> c3 = c1.andThen(c2);
 persons.stream()
         .forEach(c1.andThen(c2));
 ```
+
+## Filtering a Stream
