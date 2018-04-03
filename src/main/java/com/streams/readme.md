@@ -33,7 +33,10 @@ So a Stream is:
 * An `Object` that should not change the data it processes.
 * An `Object` that is able to process data in `one pass`.
     e.g. `.map(n -> n.getNames()).filter(name -> name.startsWith("A").reduce(....)`
-    
+* An `Object` optimised from the algorithm point of view, and able to process data in parallel.
+    * `What does that mean???`, It means that for each operation performed in a stream, 
+    that `operation` should be an optimal operation.
+
 ### How can we build a Stream?
 
 - There are many patterns but a simple way to create a Stream would be below:
