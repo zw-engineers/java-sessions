@@ -10,17 +10,17 @@
     - It is a new concept in Java.
     - IT IS NOT A `COLLECTION` !
 
-## What does a Stream exactly do?
+### What does a Stream exactly do?
 
 * It gives ways to efficiently process large amounts of data...and also smaller ones.
 
-## What does efficiently mean?
+### What does efficiently mean?
 
 * It means two things:
     - Data is processed in `parallel`, (why??..)to leverage the computing power of multicore CPUs
     - All the processes are conducted in a `pipeline`, to avoid unnecessary intermediary computations.
 
-## Why can't Collection be a Stream?
+### Why can't Collection be a Stream?
 
 * Because Stream is a new concept, and we do not want to change the way the Collection API works.
 
@@ -34,7 +34,7 @@ So a Stream is:
 * An `Object` that is able to process data in `one pass`.
     e.g. `.map(n -> n.getNames()).filter(name -> name.startsWith("A").reduce(....)`
     
-## How can we build a Stream?
+### How can we build a Stream?
 
 - There are many patterns but a simple way to create a Stream would be below:
         
