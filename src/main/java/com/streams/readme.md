@@ -90,3 +90,21 @@ public interface Consumer<T> {
     - `Consumer<T> c = p -> System.out::println; //method reference`
 - The `default Consumer<T> andThen(Consumer<? super T> after)` method allows us to 
 chain consumers!
+
+### Let's chain consumers
+
+```java
+List<String> list = new ArrayList<>();
+
+Consumer<String> c1 = s -> list.add(s);
+Consumer<String> c2 = s -> System.out.println(s);
+
+// we can chain both consumers as below:
+Consumer<String> c3 = c1.andThen(c2);
+```
+- Because `forEach()` does not return anything, we can chain consumers using the 
+`default` method `andThen()`.
+```java
+persons.stream()
+        .forEach(c1.andThen(c2));
+```
