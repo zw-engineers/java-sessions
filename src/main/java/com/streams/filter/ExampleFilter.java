@@ -21,6 +21,6 @@ public class ExampleFilter {
     public List<Person> peopleOver20 () {
         return listOfPeople().stream()
                 .filter(person -> person.getAge() > 20) // Our Predicate is here within the filter() method.
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); // This list will contain all people over the age of 20
     }
 }
