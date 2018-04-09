@@ -113,9 +113,9 @@ persons.stream()
 
 ## Filtering a Stream
 
-Let us focus on the `filter` operation.
+Let us focus on the `filter` operation. What is it?
 
-- An Intermediary Operation
+- An Intermediary Operation (So it returns a `Stream<T>`)
 - Takes a stream defined on a source of data, and it filters out part of that data given a `Predicate`.
 
 Example:
