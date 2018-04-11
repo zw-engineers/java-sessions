@@ -65,3 +65,6 @@ Predicate which we will use to `filter` out the data we need.
 Predicate we created. 
 * In this case the outcome is that `stream2` will return `two` as this matches our 
 Predicate.
+* Notice that the `of()` method of `Stream<>` is a static method which allows you to create
+Streams in Java.
+* Also `stream1` and `stream2` are actually different objects and they are not the same!
