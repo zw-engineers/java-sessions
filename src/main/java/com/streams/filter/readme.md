@@ -31,3 +31,11 @@ Stream<Person> stream = list.stream(); // Open a stream on a List<Person>
 Stream<Person> filtered =
     stream.filter(person -> person.getAge() > 20); // You create a filtered Stream<T> by calling the filter()
 ```
+
+### Takes a Predicate as a parameter
+
+```java
+Predicate<Person> p = person -> person.getAge() > 20;
+```
+In this case the lambda expression returns true or false based on the expression that
+a `person's` age is greater than 20. Predicates return boolean result thus `true`:`false` 
