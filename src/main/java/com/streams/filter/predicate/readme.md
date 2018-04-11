@@ -28,3 +28,40 @@ Predicate<Integer> p = p3.or(p1).and(p2); // (p3 OR p1) AND p2
 
 * So we can chain our Predicates if we wanted to but the priorities of chaining these is 
 not handled by methods.
+
+## IsEqual
+
+There is also an `isEqual()` method in the Predicate interface:
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+    boolean test(T t);
+    
+    // default methods
+    
+    static <T> Predicate<T> isEqual(Object o) { ... } 
+}
+```
+
+* It creates a new Predicate by comparing the object passed as a parameter as below:
+
+```java
+Predicate<String> p = Predicate.isEqual("two") ;
+```
+
+* And it can be used to filter out Streams of Strings as the example below:
+
+```java
+Predicate<String> p = Predicate.isEqual("two");
+
+Stream<String> stream1 = Stream.of("one", "two", "three");
+
+Stream<String> stream2 = stream1.filter(p);
+```
+* Here we have `stream1` which contains a Stream of Strings. Above that we have create our
+Predicate which we will use to `filter` out the data we need.
+* We also have another Stream `stream2` which will filter out `streams1` given the 
+Predicate we created. 
+* In this case the outcome is that `stream2` will return `two` as this matches our 
+Predicate.
