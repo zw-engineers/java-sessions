@@ -1,4 +1,6 @@
-# Filtering a Stream
+# Filter Operation
+
+## Filtering a Stream
 
 Let us focus on the `filter` operation. What is it?
 
