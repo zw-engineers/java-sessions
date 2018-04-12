@@ -24,6 +24,6 @@ public class ExampleFlatMapTest {
         List<Integer> list3 = Arrays.asList(7, 8, 9);
 
         List<List<Integer>> listOfLists = Arrays.asList(list1, list2, list3);
-        assertThat(45).isEqualTo(exampleFlatMap.sumLists(listOfLists));
+        assertThat(exampleFlatMap.sumLists(listOfLists)).isEqualTo(45);
     }
 }
