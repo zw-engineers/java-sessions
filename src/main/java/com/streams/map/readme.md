@@ -47,4 +47,4 @@ public interface Function<T, R> {
 }
 ```
 
-* We also have one static method called `identity` which takes an _objects_ and returns that same object.
+* We also have one static method called `identity` which takes an _object_ and returns that same object.
