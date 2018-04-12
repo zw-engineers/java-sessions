@@ -1,4 +1,17 @@
-# Building and Consuming a Stream
+# ForEach Operation
+
+* The _forEach()_ method is a _Terminal Operation_.
+* It's a void method that takes a _Consumer_ and does not return anything.
+* It has an abstract method `accept(T t)` which takes an argument and performs
+an operation on that argument type.
+* There is also another method `andThen(Consumer<T> after)` which allows us to chain
+another consumer to another consumer and perform an operation on the chained consumer. 
+
+Suppose we wanted to perform an operation of adding elements to a list based on a filter. 
+For example, if we had a list of people of different ages and we wanted to have a list of 
+people who are over 20 only, we could use the _forEach_ operation to help us achieve that.
+
+## Building and Consuming a Stream
 
 ### Let's look at the `Consumer<T>` interface
 
