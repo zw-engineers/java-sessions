@@ -53,3 +53,31 @@ are all the same.
         * The reduction of an empty stream is the identity element.
     * What happens if the _Stream_ has only one element?
         * If the _Stream_ has only one element, then the reduction is that element.
+* Suppose the reduction is the max
+```java
+    BinaryOperation<Integer> max = (i1, i2) ->
+        i1 > i2 ? i1 : i2;
+```
+* The problem here is that the _max_ operation does not have an identity.
+* Suppose we use the _max_ operation to find the maximum value in a `List<Integers>` where the list is empty.
+```java
+    List<Integer> ages = ... ;
+    Stream<Integer> stream = ages.stream();
+    ... max =
+        stream.max(Comparator.naturalOrder());
+```
+* Here if it is an _int_ the default value would be 0. In the case of the code above, the _type_ is _Integer_
+which is an object and the default value would be _null_. This would be messy and painful to maintain
+as we would have to have code to constantly check if the value of the _Integer_ is not null.
+
+* To resolve this would could pass in an _Optional_ of type _Integer_ as below:
+
+```java
+    List<Integer> ages = ...;
+    Stream<Integer> stream = ages.stream();
+    Optional<Integer> max = // Here we use the Optional of type Integer
+            stream.max(Comparator.naturalOrder());
+```
+* Here, _Optional_ is an object that represents _There might not be a value_.
+* In a _Wrapper_ type it is expected that there is _ALWAYS_ a value.
+* In an _Optional_ type it is expected that there might not be a value.
