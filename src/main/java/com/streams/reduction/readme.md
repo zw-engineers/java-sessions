@@ -1,5 +1,7 @@
 # Reduction Operation
 
+* This is a _terminal operation_.
+* They trigger the processing of the data.
 * There are two kinds of reduction in the `Stream API`.
     * 1st: aggregation = _min, max, sum, etc..._
 
