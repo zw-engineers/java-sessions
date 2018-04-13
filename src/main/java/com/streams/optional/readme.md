@@ -17,10 +17,10 @@
 * The method `get()` returns the value held by this optional.
 * The method `orElse()` encapsulates both calls
 ```java
-String s = opt.orElse(""); // Here the orElse() defines a default value.
+    String s = opt.orElse(""); // Here the orElse() defines a default value.
 ```
 
 * Should we wish to throw an exception, we can also use the the `orElseThrow()` method on an _Optional_.
 ```java
-String s = opt.orElseThrow(MyException::new); // lazy construct.
+    String s = opt.orElseThrow(MyException::new); // lazy construct.
 ```
