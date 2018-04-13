@@ -22,4 +22,22 @@ public class ExampleReductionTest {
     public void should_return_sum_of_all_numbers_in_list() {
         assertThat(exampleReduction.getTotalSum(numbersList)).isEqualTo(168);
     }
+
+    @Test
+    public void should_return_max_value_of_numbers_in_list() {
+        List<Integer> numbers = Arrays.asList(10, 22, 3, 44, 5, 25, 75, 4);
+        assertThat(exampleReduction.getMaxValueWithIdentity(numbers)).isEqualTo(75);
+    }
+
+    @Test
+    public void should_return_zero_when_value_passed_in_is_empty() {
+        List<Integer> numbers = Arrays.asList();
+        assertThat(exampleReduction.getMaxValueWithIdentity(numbers)).isEqualTo(0);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void should_throw_null_pointer_exception_when_value_passed_in_is_null() {
+        List<Integer> numbers = null;
+        assertThat(exampleReduction.getMaxValueWithIdentity(numbers));
+    }
 }
