@@ -39,3 +39,7 @@
 ```java
     Period p = birthDate.until(date);
 ```
+
+## DateAdjuster
+
+* Useful to add or subtract an amount of time to an _Instant_ or a _LocalDate_.
