@@ -16,6 +16,8 @@ import static java.time.LocalDate.now;
 
 public class DateTimeExample {
 
+    private final LocalDate today = LocalDate.of(2018, 04, 28);
+
     private List<Person> getPeople() {
 
         List<Person> persons = new ArrayList<>();
@@ -47,12 +49,26 @@ public class DateTimeExample {
     }
 
 
+    /**
+     *
+     * @return - people aged 30 years or over.
+     */
     public List<Person> over30() {
         return getPeople().stream()
                 .filter(person ->
                         Period.between(
                                 person.getDateOfBirth(),
-                                LocalDate.of(2018, 04, 28)).get(ChronoUnit.YEARS) >= 30)
+                                today).get(ChronoUnit.YEARS) >= 30)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     *
+     * @return - return people aged 360 months or over.
+     */
+    public List<Person> over360Months() {
+        return getPeople().stream()
+                .filter(person -> person.getDateOfBirth().until(today, ChronoUnit.MONTHS) >= 360)
                 .collect(Collectors.toList());
     }
 }

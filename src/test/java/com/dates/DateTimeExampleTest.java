@@ -20,9 +20,17 @@ public class DateTimeExampleTest {
 
     @Test
     public void should_return_people_aged_18_and_over() {
-        List<Person> over30s = Arrays.asList(
+        List<Person> expectedPerson = Arrays.asList(
                 new Person("Paul", LocalDate.of(1985, 6, 10))
         );
-        assertThat(datesExamples.over30()).isEqualTo(over30s);
+        assertThat(datesExamples.over30()).isEqualTo(expectedPerson);
+    }
+
+    @Test
+    public void should_return_people_aged_360_months_and_over() {
+        List<Person> expectedPerson = Arrays.asList(
+                new Person("Paul", LocalDate.of(1985, 6, 10))
+        );
+        assertThat(datesExamples.over360Months()).isEqualTo(expectedPerson);
     }
 }
