@@ -60,3 +60,32 @@
     LocalTime bedTime = LocalTime.of(23, 0);
     LocalTime wakeUpTime = bedTime.plusHours(8); // 7:00
 ```
+
+## ZonedTime
+* There are _Time Zones_ all over the Earth.
+* Java uses the [IANA Database](https://www.iana.org/time-zones).
+* The Zones are available from:
+```java
+    Set<String> allZoneIds = ZoneId.getAvailableZoneIds();
+    String ukTZ = ZoneId.of("Europe/London");
+```
+
+## Bridges Between The APIs
+* How can we interoperate with the legacy Date API?
+```java
+// Instant & Date
+Date date = Date.from(instant); // API -> Legacy
+Instant instant = date.toInstant(); // Legacy -> new API
+
+// Instant & TimeStamp
+Timestamp time = Timestamp.from(instant); // API -> Legacy
+Instant instant = time.toInstant(); // Legacy -> new API
+
+// LocalDate to Date
+Date date = Date.from(localDate); // API -> Legacy
+LocalDate localDate = date.toLocalDate(); // Legacy -> new API
+
+// LocalTime to Time
+Time time = Time.from(localTime); // API -> Legacy
+LocalTime localTime = time.toLocalTime(); // Legacy -> new API
+```
