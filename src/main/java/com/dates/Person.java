@@ -1,6 +1,7 @@
 package com.dates;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Person {
 
@@ -20,6 +21,20 @@ public class Person {
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) &&
+                Objects.equals(dateOfBirth, person.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, dateOfBirth);
     }
 
     @Override
