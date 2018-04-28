@@ -48,3 +48,15 @@
     LocalDate now = LocalDate.now();
     LocalDate nextSunday = now.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
 ```
+
+## LocalTime
+* A LocalTime is a time of the day
+* E.g. _10:20_
+```java
+    LocalTime time = LocalTime.of(10, 20); // 10:20 ->  10 Hours and 20 Minutes
+```
+* Includes a set of methods to manipulate the time:
+```java
+    LocalTime bedTime = LocalTime.of(23, 0);
+    LocalTime wakeUpTime = bedTime.plusHours(8); // 7:00
+```
