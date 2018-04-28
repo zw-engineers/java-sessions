@@ -48,6 +48,11 @@ public class DateTimeExample {
 
 
     public List<Person> over30() {
-        return getPeople().stream().filter(person -> Period.between(person.getDateOfBirth(), now()).get(ChronoUnit.YEARS) >= 30).collect(Collectors.toList());
+        return getPeople().stream()
+                .filter(person ->
+                        Period.between(
+                                person.getDateOfBirth(),
+                                LocalDate.of(2018, 04, 28)).get(ChronoUnit.YEARS) >= 30)
+                .collect(Collectors.toList());
     }
 }
