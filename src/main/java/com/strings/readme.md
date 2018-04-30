@@ -45,5 +45,9 @@
 * Much simpler in JDK 8 with the _String Joiner_.
 * A String Joiner is built with a separator.
 ```java
-
+    public String useStringJoiner(String str1, String str2) {
+        StringJoiner joiner = new StringJoiner(", ", "{", "}");
+        joiner.add(str1).add(str2);
+        return joiner.toString();
+    }
 ```
