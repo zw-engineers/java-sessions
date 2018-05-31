@@ -1,7 +1,5 @@
 package com.collections;
 
-import java.util.Objects;
-
 public class Product {
 
     private String name;
