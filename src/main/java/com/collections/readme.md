@@ -138,3 +138,21 @@ by default. We would need to implement that.
 * Arrays do not help us when it comes to scenarios as this were one would require uniqueness or non duplicate
 values.
 * This is where _Collections_ come in as they help us solve all of these problems.
+
+---
+
+## Why You Should Use Collections
+
+* Implementing data structures can be hard.
+* Collections implement data structures so we do not have to worry about the hard bit
+which is implemeneting data structures.
+* The reason we call the Java Collections Framework a _framework_ is because it offers
+are very diverse, in and of themselves. 
+* Some offer _Ordering_, _Pairs_ and _Uniqueness_.
+    * Iteration Order: Lists
+    * Uniqueness: Sets
+    * Modification Order: Queues & Deques
+    * Collection of Pairs: Maps
+
+---
+
