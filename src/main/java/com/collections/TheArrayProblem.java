@@ -29,6 +29,11 @@ public class TheArrayProblem {
         // Add
         products = add(window, products);
         System.out.println(Arrays.toString(products));
+
+        // Duplicate
+        products = add(window, products);
+        // returns -> [Product{name='Wooden Door', weight=35}, Product{name='Floor Panel', weight=25}, Product{name='Window', weight=10}, Product{name='Window', weight=10}]
+        System.out.println(Arrays.toString(products));
     }
 
 

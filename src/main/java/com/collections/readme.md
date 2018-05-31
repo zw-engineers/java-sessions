@@ -44,19 +44,19 @@ in order to get a more readable array.
 * Suppose we wanted to add another value in the array as below:
 
 ```java
-public class TheArrayProblem {
-
-    public static void main(String[] args) {
-        Product door = new Product("Wooden Door", 35);
-        Product floorPanel = new Product("Floor Panel", 25);
-
-        // Create
-        Product[] products = {door, floorPanel};
-
-        // Add
-        products[2] = new Product("Window Panel", 10);
+    public class TheArrayProblem {
+    
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+    
+            // Create
+            Product[] products = {door, floorPanel};
+    
+            // Add
+            products[2] = new Product("Window Panel", 10);
+        }
     }
-}
 ```
 * This will throw an exception:
 
@@ -68,28 +68,34 @@ public class TheArrayProblem {
 implementation that edits the array and performs the appropriate resizing operation.
 
 ```java
-    public static Product[] add(Product product, Product[] array) {
-        int length = array.length;
-        Product[] newArray = Arrays.copyOf(array, length + 1);
-        newArray[length] = product;
-        return newArray;
+    public class TheArrayProblem {
+    
+        public static Product[] add(Product product, Product[] array) {
+            int length = array.length;
+            Product[] newArray = Arrays.copyOf(array, length + 1);
+            newArray[length] = product;
+            return newArray;
+        }
     }
 ```
 
 * To use this we would need to change our code to look like :point_down:
 
 ```java
-    public static void main(String[] args) {
-        Product door = new Product("Wooden Door", 35);
-        Product floorPanel = new Product("Floor Panel", 25);
-        Product window = new Product("Window", 10);
+    public class TheArrayProblem {
     
-        // Create
-        Product[] products = {door, floorPanel};
-    
-        // Add
-        products = add(window, products);
-        System.out.println(Arrays.toString(products));
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Window", 10);
+        
+            // Create
+            Product[] products = {door, floorPanel};
+        
+            // Add
+            products = add(window, products);
+            System.out.println(Arrays.toString(products));
+        }
     }
 ```
 
@@ -104,3 +110,28 @@ need to have another implementation to do this as well.
 * Another issue is that Arrays are not able to enforce constraints on our code.
 * Suppose we did not want to have duplicates in our array, this would be very hard to achieve with arrays
 as they allow you to add more of the same element in your array.
+
+```java
+    public class TheArrayProblem {
+    
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Window", 10);
+        
+            // Create
+            Product[] products = {door, floorPanel};
+        
+            // Add
+            products = add(window, products);
+            System.out.println(Arrays.toString(products));
+            
+            // Duplicate
+            products = add(window, products);
+            // returns two window products...
+            System.out.println(Arrays.toString(products));
+        }
+    }
+```
+* Also if we wanted to have uniqueness in our array, this would also be a challenge as we do not have that feature
+by default. We would need to implement that.
