@@ -35,7 +35,7 @@ in order to get a more readable array.
     System.out.println(Arrays.toString(products));
 ```
 * Which would return:
-```json
+```text
     [Product{name='Wooden Door', weight=35}, Product{name='Floor Panel', weight=25}]
 ```
 
