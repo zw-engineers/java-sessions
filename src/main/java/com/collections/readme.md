@@ -156,3 +156,33 @@ are very diverse, in and of themselves.
 
 ---
 
+## Collection of Collections
+
+* All the collection interfaces within the Java API extend this common parent interface called Java.util Collection, 
+and on the collection face itself there is a bunch of common behavior, common methods which they will implement.
+
+### List
+* The first type of collection we will come across are _Lists_:
+    * The most commonly used collections.
+    * They have an order, indexing.
+    
+### Set and SortedSet
+* The second type of collection are _Sets_ and their closely related big sister, the _Sorted Set_
+    * A Set is a collection that has distinct elements.
+    * So if you have an element, it's only in that _Set_ once.
+    * Sorted sets are sets which also have a sort order.
+    * They combine the kind of ordering aspect that lists have with the uniqueness of _Sets_. But they are definitely a
+    _Set_ and not a _List_.
+
+### Queue and Deque
+* _Deque_ is a _double ended Queue_.
+* Queues are thing with an order. Not just indexing order, but the order in which elements are added to or removed from them.
+* A Queue is a _First In First Out_ meaning that the first element you put into the Queue, will
+also be the first element to be removed from Queue.
+* Double Ended Queues support both _FIFO_ and _LIFO_ behaviour.
+
+### Map and SortedMap
+* _Map_ and _SortedMap_ are interfaces that define pairs. They have keys and they have values.
+* The keys are unique and the values are associated to a key.
+* A _Sorted Map_ will have the same characteristics of _values_ and _pairs_ but they will
+also have the sort order capability to allow sorted within the _Sorted Map_.
