@@ -135,3 +135,6 @@ as they allow you to add more of the same element in your array.
 ```
 * Also if we wanted to have uniqueness in our array, this would also be a challenge as we do not have that feature
 by default. We would need to implement that.
+* Arrays do not help us when it comes to scenarios as this were one would require uniqueness or non duplicate
+values.
+* This is where _Collections_ come in as they help us solve all of these problems.
