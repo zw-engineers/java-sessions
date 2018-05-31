@@ -7,6 +7,7 @@ public class TheArrayProblem {
     public static void main(String[] args) {
         Product door = new Product("Wooden Door", 35);
         Product floorPanel = new Product("Floor Panel", 25);
+        Product window = new Product("Window", 10);
 
         // Create
         Product[] products = {door, floorPanel};
@@ -26,6 +27,22 @@ public class TheArrayProblem {
         System.out.println(Arrays.toString(products)); // returns => [Product{name='Wooden Door', weight=35}, Product{name='Floor Panel', weight=25}]
 
         // Add
+        products = add(window, products);
+        System.out.println(Arrays.toString(products));
+    }
 
+
+    /**
+     * Returns a new Array given the new Product element
+     * to be added to the array.
+     * @param product - element to be added to the array.
+     * @param array - the old Array to be modified to have the new element.
+     * @return - a new Array given the new Product element
+     */
+    public static Product[] add(Product product, Product[] array) {
+        int length = array.length;
+        Product[] newArray = Arrays.copyOf(array, length + 1);
+        newArray[length] = product;
+        return newArray;
     }
 }
