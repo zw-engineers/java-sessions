@@ -241,3 +241,228 @@ over the elements inside.
 `contains(element)` -> True if the element is in this collection, false otherwise
 `containsAll(collection)` -> True if all the elements of the argument collection are in this collection
 `clear()` -> Remove all elements from this collection
+
+`Collection<Product> products;` -> Every element in the Collection will be of type _Product_.
+
+* If we wanted to add elements into our _Products_ Collection we can add elements as below:
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+            
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+    
+            System.out.println(products);
+    
+        }
+    }
+```
+* which would return:
+
+```java
+    [Product{name='Wooden Door', weight=35}, Product{name='Floor Panel', weight=25}, Product{name='Glass Window', weight=10}]
+```
+
+* Suppose we didn't want to print the elements out on one line but we wanted to print each product in turn. We could 
+achieve this by using the iterator.
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+    
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+    
+            // Build our iterator
+            final Iterator<Product> productIterator = products.iterator();
+            // hasNext() -> Does it have another element? Returns true is there is an element otherwise false terminating the loop.
+            while (productIterator.hasNext()) {
+                // Give me the next element and move yourself forward to the next element in the iteration order.
+                Product product = productIterator.next();
+                System.out.println(product);
+            }
+    
+        }
+    }
+```
+
+* which would return:
+
+```java
+    Product{name='Wooden Door', weight=35}
+    Product{name='Floor Panel', weight=25}
+    Product{name='Glass Window', weight=10}
+```
+
+* Iterators are not the common style that people would use when they want to iterate over elements.
+* In Java 5 the _for each_ loop was introduced which allowed us to iterate over elements and perform functions
+on each element.
+* So instead of building the iterator and using the _while_ loop we would just do the following:
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+    
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+            
+            for (Product product: products) {
+                System.out.println(product);
+            }
+        }
+    }
+```
+
+* which would return:
+
+```java
+    Product{name='Wooden Door', weight=35}
+    Product{name='Floor Panel', weight=25}
+    Product{name='Glass Window', weight=10}
+```
+
+* So why care about iterators themselves since for loops are much cleaner and easier to implement?
+* Suppose we have a new requirement to print out values that have a weight greater than or equal to 20.
+* Using the iterator way we would implement:
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+    
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+    
+            // Build our iterator
+            final Iterator<Product> productIterator = products.iterator();
+            // hasNext() -> Does it have another element? Returns true is there is an element otherwise false terminating the loop.
+            while (productIterator.hasNext()) {
+                // Give me the next element and move yourself forward to the next element in the iteration order.
+                Product product = productIterator.next();
+                if (product.getWeight() >= 20) {
+                    System.out.println(product);
+                }
+            }
+    
+        }
+    }
+```
+
+* which would return:
+
+```java
+    Product{name='Wooden Door', weight=35}
+    Product{name='Floor Panel', weight=25}
+```
+
+* But what we can do with an iterator and not a for each loop is to remove elements.
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+    
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+    
+            // Build our iterator
+            final Iterator<Product> productIterator = products.iterator();
+            // hasNext() -> Does it have another element? Returns true is there is an element otherwise false terminating the loop.
+            while (productIterator.hasNext()) {
+                // Give me the next element and move yourself forward to the next element in the iteration order.
+                Product product = productIterator.next();
+                if (product.getWeight() >= 20) {
+                    System.out.println(product);
+                } else {
+                    productIterator.remove(); // Remove element
+                }
+            }
+    
+            System.out.println(products);
+    
+        }
+    }
+```
+
+* which would return :
+
+```java
+    Product{name='Wooden Door', weight=35}
+    Product{name='Floor Panel', weight=25}
+    [Product{name='Wooden Door', weight=35}, Product{name='Floor Panel', weight=25}]
+```
+
+* Suppose we tried the same thing on a _for each_ loop rather than an iterator:
+
+```java
+    public class CollectionConcepts {
+        public static void main(String[] args) {
+            Product door = new Product("Wooden Door", 35);
+            Product floorPanel = new Product("Floor Panel", 25);
+            Product window = new Product("Glass Window", 10);
+    
+            Collection<Product> products = new ArrayList<>();
+    
+            // Add each product into the Products Collection
+            products.add(door);
+            products.add(floorPanel);
+            products.add(window);
+    
+            for (Product product: products) {
+                if (product.getWeight() >= 20) {
+                    System.out.println(product);
+                } else {
+                    products.remove(product); // Remove element
+                }
+            }
+    
+        }
+    }
+```
+
+* Actually this will throw an exception:
+
+```text
+    Exception in thread "main" java.util.ConcurrentModificationException
+        at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909)
+        at java.util.ArrayList$Itr.next(ArrayList.java:859)
+        at com.collections.CollectionConcepts.main(CollectionConcepts.java:20)
+```
+
+* The reason is that we are iterating over our Collection and modifying it at the same time.
+* If you're iterating over a _for loop_, *DO NOT* modify the Collection.
+* If you want to remove an element, use an iterator.
