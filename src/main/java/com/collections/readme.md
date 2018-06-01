@@ -161,6 +161,10 @@ are very diverse, in and of themselves.
 * All the collection interfaces within the Java API extend this common parent interface called Java.util Collection, 
 and on the collection face itself there is a bunch of common behavior, common methods which they will implement.
 
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29547780/40834103-d1f2ca12-6587-11e8-9bb3-92a55367919f.png">
+</p>
+
 ### List
 * The first type of collection we will come across are _Lists_:
     * The most commonly used collections.
