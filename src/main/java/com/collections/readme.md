@@ -202,3 +202,20 @@ also have the sort order capability to allow sorted within the _Sorted Map_.
 * Interfaces often have a popular implementation (_e.g. List -> ArrayList() or Map -> HashMap()_).
 * Interfaces have more of the functional characteristics where as the implementation will have more of the performance characteristics.
 * Each interface defines behaviour and each implementation defined performance characteristics.
+
+### Picking the right Collection
+
+* If you're an application developer, how would you go about picking the right collection?
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29547780/40834789-adf840c2-6589-11e8-9334-a18dbd746755.png">
+</p>
+
+* Using the flowchart above we could ask ourselves the following:
+    * Are the elements keyed?
+    * If not we would that ask ourselves if the elements are unique.
+    * If they are then we would know that we need to use some kind of Set.
+    * The next question would be, the ordering in the Set. If ordering is important we would use the _Sorted Set_ otherwise we would just use the _Set_.
+    * If elements are not unique we would either need to use a _List_, _Queue_ or _Deque_. 
+    * If the order is _Last in, First out_, then we would use a _Deque_ otherwise we would use a _List_.
+    * If the order is _First in, First out_, then we would use a _Queue_ or _Deque_ (since a Deque is double ended :smirk: ).
