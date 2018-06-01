@@ -219,3 +219,25 @@ also have the sort order capability to allow sorted within the _Sorted Map_.
     * If elements are not unique we would either need to use a _List_, _Queue_ or _Deque_. 
     * If the order is _Last in, First out_, then we would use a _Deque_ otherwise we would use a _List_.
     * If the order is _First in, First out_, then we would use a _Queue_ or _Deque_ (since a Deque is double ended :smirk: ).
+
+---
+
+## Collection
+
+* The Collection interface extends the _Iterable_ interface.
+* Iterable defines something which can be iterated over.
+* An _Iterator_ is like a cursor into that Collection. It lets go through the collection element by element and loop 
+over the elements inside.
+
+### Outline of Collection interface
+
+`size()` -> Get the number of elements in the Collection
+`isEmpty()` -> True if size() == 0, false otherwise
+`add(element)` -> Add the element at the beginning of this collection
+`addAll(collection)` -> Add all the elements of the argument collection to this collection
+`remove(element)` -> Remove the element from this collection
+`removeAll(collection)` -> Remove all the elements of the argument collection to this collection
+`retainAll(collection)` -> Remove all the elements of this collection not in the argument collection
+`contains(element)` -> True if the element is in this collection, false otherwise
+`containsAll(collection)` -> True if all the elements of the argument collection are in this collection
+`clear()` -> Remove all elements from this collection
