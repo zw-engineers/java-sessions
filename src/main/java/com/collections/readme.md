@@ -190,3 +190,15 @@ also be the first element to be removed from Queue.
 * The keys are unique and the values are associated to a key.
 * A _Sorted Map_ will have the same characteristics of _values_ and _pairs_ but they will
 also have the sort order capability to allow sorted within the _Sorted Map_.
+
+### Interfaces vs Implementations
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29547780/40834523-fb89a764-6588-11e8-9759-94a5a7d234d4.png">
+</p>
+
+* An interface can be backed by multiple implementations.
+* Interfaces are usually used as the variable type. 
+* Interfaces often have a popular implementation (_e.g. List -> ArrayList() or Map -> HashMap()_).
+* Interfaces have more of the functional characteristics where as the implementation will have more of the performance characteristics.
+* Each interface defines behaviour and each implementation defined performance characteristics.
