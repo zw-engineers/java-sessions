@@ -34,4 +34,10 @@ public class StringConcatTest {
         assertThat(stringConcat.useStringJoiner("Hello", "World")).isEqualTo("{Hello, World}");
     }
 
+    @Test
+    public void should_return_a_concar_string_using_string_joiner_2() {
+        String[] strings = {"one", "two", "three"};
+        assertThat(stringConcat.useStringJoiner(strings)).isEqualTo("one, two, three");
+    }
+
 }

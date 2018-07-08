@@ -51,3 +51,9 @@
         return joiner.toString();
     }
 ```
+
+* We can also use the `StringJoiner` directly from the String object.
+
+```java
+
+```
