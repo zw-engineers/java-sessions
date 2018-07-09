@@ -62,3 +62,27 @@
 
 ---
 
+## Reading Text Files
+
+* A `lines()` method has been added on the `BufferedReader` class.
+
+```java
+        // Java 7 : try with resources
+        try (BufferedReader reader =
+                     new BufferedReader(
+                             new FileReader(new File("src/main/resources/example.txt"))
+                     )
+        ) {
+            Stream<String> stream = reader.lines();
+            stream.filter(line -> line.contains("ERROR"))
+                    .findFirst().ifPresent(System.out::println);
+        } catch (IOException e) {
+            e.getMessage();
+        }
+```
+
+* There is also a new `Path` interface in Java 7 that we could also use to read text files.
+
+```java
+
+```
