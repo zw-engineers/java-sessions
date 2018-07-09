@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class ExampleIO {
@@ -23,6 +26,20 @@ public class ExampleIO {
             e.getMessage();
         }
 
+        return false;
+    }
+
+    public boolean doesFileExists(String initialPathString, String... more) {
+        // Java 7 : try with resources and use of Paths
+        Path path = Paths.get(initialPathString, more);
+        try (Stream<String> stream = Files.lines(path)) {
+            return stream.filter(line -> line.contains("Artemas"))
+                    .findFirst()
+                    .get()
+                    .length() > 0;
+        } catch (IOException e) {
+            e.getMessage();
+        }
         return false;
     }
 
