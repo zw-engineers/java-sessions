@@ -1,4 +1,4 @@
-package com.strings;
+package com.stringsio;
 
 import org.junit.Before;
 import org.junit.Test;
