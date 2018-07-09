@@ -8,21 +8,6 @@ import java.util.stream.Stream;
 
 public class ExampleIO {
 
-    public static void main(String[] args) {
-        // Java 7 : try with resources
-        try (BufferedReader reader =
-                     new BufferedReader(
-                             new FileReader(new File("src/main/resources/example.txt"))
-                     )
-        ) {
-            Stream<String> stream = reader.lines();
-            stream.filter(line -> line.contains("ERROR"))
-                    .findFirst().ifPresent(System.out::println);
-        } catch (IOException e) {
-            e.getMessage();
-        }
-    }
-
     public boolean doesFileExist (String fileLocation) {
 
         // Java 7 : try with resources
