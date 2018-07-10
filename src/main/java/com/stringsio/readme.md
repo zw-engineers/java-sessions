@@ -84,5 +84,41 @@
 * There is also a new `Path` interface in Java 7 that we could also use to read text files.
 
 ```java
+    public boolean doesFileExists(String initialPathString, String... more) {
+        // Java 7 : try with resources and use of Paths
+        Path path = Paths.get(initialPathString, more);
+        try (Stream<String> stream = Files.lines(path)) {
+            return stream.filter(line -> line.contains("Artemas"))
+                    .findFirst()
+                    .get()
+                    .length() > 0;
+        } catch (IOException e) {
+            e.getMessage();
+        }
+        return false;
+    }
+```
 
+---
+
+## Reading Directory Entries
+
+* There is a `Files.list(Path)` method that returns a list of directories under a 
+specified `Path`.
+
+```java
+    public List<Path> directories(String pathDirectory) {
+
+        List<Path> directories = new ArrayList<>();
+        // Java 7 : try with resources and use of Paths
+        Path path = Paths.get(pathDirectory);
+        try (Stream<Path> stream = Files.list(path)) {
+            directories = stream.filter(p -> p.toFile().isDirectory()).collect(Collectors.toList());
+            return directories;
+        } catch (IOException e) {
+            e.getMessage();
+        }
+
+        return directories;
+    }
 ```

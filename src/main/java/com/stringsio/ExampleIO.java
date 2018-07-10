@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ExampleIO {
@@ -41,6 +44,21 @@ public class ExampleIO {
             e.getMessage();
         }
         return false;
+    }
+
+    public List<Path> directories(String pathDirectory) {
+
+        List<Path> directories = new ArrayList<>();
+        // Java 7 : try with resources and use of Paths
+        Path path = Paths.get(pathDirectory);
+        try (Stream<Path> stream = Files.list(path)) {
+            directories = stream.filter(p -> p.toFile().isDirectory()).collect(Collectors.toList());
+            return directories;
+        } catch (IOException e) {
+            e.getMessage();
+        }
+
+        return directories;
     }
 
 }

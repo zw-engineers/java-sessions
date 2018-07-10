@@ -50,9 +50,15 @@ public class ExampleIOTest {
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void should_return_fshould_return_NoSuchElementException_when_file_does_not_contain_Artemas_word() {
+    public void should_return_NoSuchElementException_when_file_does_not_contain_Artemas_word() {
         String firstPath = "src/main/resources";
         String more = "example.txt";
         assertThat(exampleIO.doesFileExists(firstPath, more)).isEqualTo(false);
+    }
+
+    @Test
+    public void should_return_directories_when_a_valid_path_is_provided() {
+        String path = "";
+        assertThat(exampleIO.directories(path).size()).isGreaterThan(0);
     }
 }
