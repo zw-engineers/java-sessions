@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class School {
@@ -26,6 +25,9 @@ public class School {
 
         // get all subjects as unique
         System.out.println(students.stream().flatMap(student -> student.getSubjects().stream()).distinct().collect(Collectors.toList()));
+
+        // get all Students studying English
+        System.out.println(students.stream().filter(student -> student.getSubjects().contains("English")).collect(Collectors.toList()));
     }
 
 }
