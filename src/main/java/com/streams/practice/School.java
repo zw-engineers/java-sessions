@@ -21,13 +21,26 @@ public class School {
         students.add(st3);
 
         // sort by age
-        System.out.println(students.stream().sorted(Comparator.comparing(Student::getAge).reversed()).collect(Collectors.toList()));
+        System.out.println(
+                students
+                        .stream()
+                        .sorted(Comparator.comparing(Student::getAge).reversed())
+                        .collect(Collectors.toList()));
 
         // get all subjects as unique
-        System.out.println(students.stream().flatMap(student -> student.getSubjects().stream()).distinct().collect(Collectors.toList()));
+        System.out.println(
+                students
+                        .stream()
+                        .flatMap(student -> student.getSubjects().stream())
+                        .distinct()
+                        .collect(Collectors.toList()));
 
         // get all Students studying English
-        System.out.println(students.stream().filter(student -> student.getSubjects().contains("English")).collect(Collectors.toList()));
+        System.out.println(
+                students
+                        .stream()
+                        .filter(student -> student.getSubjects().contains("English"))
+                        .collect(Collectors.toList()));
     }
 
 }
