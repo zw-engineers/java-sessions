@@ -41,6 +41,14 @@ public class School {
                         .stream()
                         .filter(student -> student.getSubjects().contains("English"))
                         .collect(Collectors.toList()));
+
+        // get all Students studying English and Over 30
+        System.out.println(
+                students
+                        .stream()
+                        .filter(student -> student.getSubjects().contains("English"))
+                        .filter(student -> student.getAge() >= 30)
+                        .collect(Collectors.toList()));
     }
 
 }
