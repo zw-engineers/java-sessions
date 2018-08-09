@@ -6,12 +6,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.*;
+
 public class School {
 
     public static void main(String[] args) {
-        List<String> s1Subjects = Arrays.asList("Maths", "Science", "English");
-        List<String> s2Subjects = Arrays.asList("History", "Music", "English");
-        List<String> s3Subjects = Arrays.asList("Content", "Geography", "Maths");
+        List<String> s1Subjects = Arrays.asList("Maths", "Science", "English", "Food Tech");
+        List<String> s2Subjects = Arrays.asList("History", "Music", "English", "French", "Spanish");
+        List<String> s3Subjects = Arrays.asList("Content", "Geography", "Maths", "History", "Graphics", "Music Technology");
         Student st1 = new Student(1234, "Artemas", "Muzanenhamo", s1Subjects, 24);
         Student st2 = new Student(1234, "Thomas", "Jenkins", s2Subjects, 30);
         Student st3 = new Student(1234, "Kate", "Johnson", s3Subjects, 20);
@@ -49,6 +51,16 @@ public class School {
                         .filter(student -> student.getSubjects().contains("English"))
                         .filter(student -> student.getAge() >= 30)
                         .collect(Collectors.toList()));
+
+        // get Student subjects associated with each Student Name.
+        System.out.println(
+                students
+                        .stream()
+                        .collect(groupingBy(
+                                Student::getSubjects,
+                                mapping(Student::getName, toList())
+                                ))
+        );
     }
 
 }
