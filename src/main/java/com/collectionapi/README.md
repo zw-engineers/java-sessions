@@ -11,3 +11,16 @@
 
 ## New Method on Iterable
 * Method `forEach()`
+
+```java
+public class IterableNewMethod {
+
+    public List<String> names() {
+        List<String> names = Arrays.asList("Artemas", "Thomas", "Bob");
+        List<String> namesInUpperCase = new ArrayList<>();
+        names.forEach(name -> namesInUpperCase.add(name.toUpperCase()));
+        return namesInUpperCase;
+    }
+
+}
+```
