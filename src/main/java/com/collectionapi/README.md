@@ -27,6 +27,9 @@ public class IterableNewMethod {
 
 ## New Method on Collection
 * Method `removeIf()`, returns a boolean.
+* This method takes a `Predicate` which returns true or false.
+* In our case the `Predicate` will return true/false based on in the collection has
+been modified or not.
 
 ```java
 public class CollectionNewMethod {
@@ -44,4 +47,11 @@ public class CollectionNewMethod {
         return list;
     }
 }
+```
+
+## New Method on List
+* Method `replaceAll()`
+
+```java
+
 ```

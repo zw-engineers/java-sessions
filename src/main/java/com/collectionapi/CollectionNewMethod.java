@@ -3,6 +3,8 @@ package com.collectionapi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CollectionNewMethod {
     public Collection<String> removeElement() {
@@ -17,5 +19,9 @@ public class CollectionNewMethod {
 
         // Return modified list.
         return list;
+    }
+
+    public List<String> toUpperCase(List<String> strings) {
+        return strings.stream().map(e -> e.toUpperCase()).collect(Collectors.toList());
     }
 }
