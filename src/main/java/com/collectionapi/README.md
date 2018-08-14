@@ -51,7 +51,15 @@ public class CollectionNewMethod {
 
 ## New Method on List
 * Method `replaceAll()`
+* The method takes a `Function` as a parameter, which is a `Unary Operator`.
+* That `Function` takes the elements of that list and returns another list of the same
+type.
 
 ```java
-
+public class CollectionNewMethod {
+    public List<String> toUpperCase(List<String> strings) {
+        strings.replaceAll(String::toUpperCase);
+        return strings;
+    }
+}
 ```
