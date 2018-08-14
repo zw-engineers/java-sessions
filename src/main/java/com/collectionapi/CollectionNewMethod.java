@@ -22,6 +22,7 @@ public class CollectionNewMethod {
     }
 
     public List<String> toUpperCase(List<String> strings) {
-        return strings.stream().map(e -> e.toUpperCase()).collect(Collectors.toList());
+        strings.replaceAll(String::toUpperCase);
+        return strings;
     }
 }
