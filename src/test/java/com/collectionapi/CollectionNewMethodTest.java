@@ -24,7 +24,11 @@ class CollectionNewMethodTest {
     public void shouldReturnAListOfSize3WhenAnElementIsRemoved() {
         Collection<String> expectedStrings = Arrays.asList("one", "two", "four");
         Collection<String> list = new ArrayList<>(expectedStrings);
-        assertEquals(list, collectionNewMethod.removeElement());
+        assertAll(
+                () -> assertEquals(list, collectionNewMethod.removeElement()),
+                () -> assertEquals(list.size(), collectionNewMethod.removeElement().size())
+        );
+
     }
 
     @Test
