@@ -63,3 +63,22 @@ public class CollectionNewMethod {
     }
 }
 ```
+
+* Method `sort()`
+* It sorts the element of the list by providing a `Comparator`.
+```java
+public class ListNewMethod {
+    public List<String> sortedList() {
+        // Removes an element on a predicate
+        List<String> strings = Arrays.asList("one", "two", "three", "four");
+
+        // will not work if list is unmodifiable
+        List<String> list = new ArrayList<>(strings);
+
+        // Doesn't return anything
+        list.sort(Comparator.naturalOrder());
+
+        return list;
+    }
+}
+```
