@@ -149,3 +149,48 @@ for us.
     Comparator<String> c = 
         Comparator.nullsLast(Comparator.natualOrder());
 ```
+
+## New Methods of the Number Types
+* All primitive numbers have their associated wrapper types.
+
+* New useful methods: sum, max, min:
+`long max = Long.max(1L, 2L);`
+* Useful to create reduction operations:
+```
+BinaryOperator<Long> sum = (l1, l2) -> l1 + l2;
+                         = Long::sum;
+```
+* New way to compute hashcode on numbers:
+```java
+    // JDK 7
+    long l = 3141592653589793238L;
+    int hash = new Long(l).hashCode(); // -1985256439
+```
+* Costly boxing/unboxing to compute this hashcode.
+```java
+    // JDK 8
+    long l = 3141592653589793238L;
+    int hash = Long.hashCode(l); // - 1985256439
+```
+* This method is available on 8 wrapper types.
+
+## New Methods on the Map Interface
+
+* Method `forEach()`
+* Takes a BiConsumer as a parameter
+
+```java
+    public class MapNewMethods {
+        public List<Person> retrievePeople() {
+            Map<Integer, Person> personMap = new HashMap<>();
+            List<Person> people = new ArrayList<>();
+    
+            personMap.put(1, new Person("Artemas", "Muzanenhamo"));
+            personMap.put(2, new Person("John", "Smith"));
+    
+            personMap.forEach((key, person) -> people.add(person));
+    
+            return people;
+        }
+    }
+```
