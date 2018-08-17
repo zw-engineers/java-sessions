@@ -139,13 +139,13 @@ sort the list with null values at the beginning of the list?
 * We can use the `Comparator.nullsFirst()` method to handle that
 for us.
 ```java
-// Considers null values lesser than non-null values
-Comparator<String> c = 
-    Comparator.nullsFirst(Comparator.natualOrder());
+    // Considers null values lesser than non-null values
+    Comparator<String> c = 
+        Comparator.nullsFirst(Comparator.natualOrder());
 ```
 * And of course
 ```java
-// Considers null values greater than non-null values
-Comparator<String> c = 
-    Comparator.nullsLast(Comparator.natualOrder());
+    // Considers null values greater than non-null values
+    Comparator<String> c = 
+        Comparator.nullsLast(Comparator.natualOrder());
 ```
