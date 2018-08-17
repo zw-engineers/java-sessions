@@ -1,4 +1,4 @@
-package com.collectionapi;
+package com.newmethods;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

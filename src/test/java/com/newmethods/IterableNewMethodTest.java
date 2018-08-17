@@ -1,4 +1,4 @@
-package com.collectionapi;
+package com.newmethods;
 
 import org.junit.Before;
 import org.junit.Test;

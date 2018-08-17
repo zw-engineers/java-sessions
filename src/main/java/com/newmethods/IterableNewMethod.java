@@ -1,4 +1,4 @@
-package com.collectionapi;
+package com.newmethods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
