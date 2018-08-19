@@ -194,3 +194,41 @@ BinaryOperator<Long> sum = (l1, l2) -> l1 + l2;
         }
     }
 ```
+
+* Method `get()`
+* This method existed in the old versions but there was one 
+main problem.
+* When you called `map.get(key)` in the old versions, it could
+return you null! That is fine but does it mean that the key
+is absent from the map or does it mean that the key is associated
+to a null value?
+* Now in Java 8 we have a new method called `getOrDefault()`.
+
+```java
+    Person getPerson(Map<Integer, Person> personMap) {
+            Person person = Person.DEFAULT_PERSON;
+            Map<Integer, Person> map = new HashMap<>();
+            map.put(2, person);
+    
+            return map.getOrDefault(personMap.get(1), person);
+    }
+```
+* Returns the default value passed as a parameter if there is no 
+value in the map.
+
+* Method `map.put(key, person)` will erase the existing person.
+* Now there is the `putIfAbsent(key, person)` method which will
+not erase an existing person, but will put a new person if none
+exists in the map.
+
+```java
+    public Map<Integer, Person> getPeople() {
+        Person person = new Person("Artemas", "Muzanenhamo");
+        Map<Integer, Person> personMap = new HashMap<>();
+        personMap.put(1, person);
+        personMap.putIfAbsent(2, new Person("Jimmy", "Butler"));
+    
+        return personMap;
+    }
+```
+* Will not erase an existing person.

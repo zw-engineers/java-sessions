@@ -13,5 +13,6 @@ public class Person {
 
     private String name;
     private String lastName;
+    public static final Person DEFAULT_PERSON = new Person("Artemas", "Muzanenhamo");
 
 }

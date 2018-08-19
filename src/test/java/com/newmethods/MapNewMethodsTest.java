@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +19,33 @@ class MapNewMethodsTest {
     }
 
     @Test
-    public void shouldReturnListOfPersons(){
+    void shouldReturnListOfPersons(){
         List<Person> expectedPeople = Arrays.asList(
                 new Person("Artemas", "Muzanenhamo"),
                 new Person("John", "Smith")
         );
 
         assertEquals(expectedPeople, mapNewMethods.retrievePeople());
+    }
+
+    @Test
+    void shouldReturnADefaultPerson(){
+        Person expectedPerson = new Person("Artemas", "Muzanenhamo");
+        Map<Integer, Person> personMap = new HashMap<>();
+        personMap.put(1, new Person("Thomas", "Jefferson"));
+
+        assertEquals(expectedPerson, mapNewMethods.getPerson(personMap));
+    }
+
+    @Test
+    void shouldReturnAMapOfTwoPeople(){
+        Person expectedPerson1 = new Person("Artemas", "Muzanenhamo");
+        Person expectedPerson2 = new Person("Jimmy", "Butler");
+        Map<Integer, Person> expectedMap = new HashMap<>();
+        expectedMap.put(1, expectedPerson1);
+        expectedMap.put(2, expectedPerson2);
+
+        assertEquals(expectedMap, mapNewMethods.getPeople());
     }
 
 }
