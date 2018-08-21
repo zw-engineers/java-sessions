@@ -50,4 +50,9 @@ public class MapNewMethods {
         person.replaceAll( (key, oldPerson) -> new Person("Artemas", "Muzanenhamo") );
         return person;
     }
+
+    public Map<Integer, Person> removeAPerson(int key, Map<Integer, Person> people) {
+        people.remove(key);
+        return people;
+    }
 }
