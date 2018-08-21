@@ -195,7 +195,8 @@ BinaryOperator<Long> sum = (l1, l2) -> l1 + l2;
     }
 ```
 
-* Method `get()`
+---
+* Method `getOrDefault()`
 * This method existed in the old versions but there was one 
 main problem.
 * When you called `map.get(key)` in the old versions, it could
@@ -216,6 +217,7 @@ to a null value?
 * Returns the default value passed as a parameter if there is no 
 value in the map.
 
+---
 * Method `map.put(key, person)` will erase the existing person.
 * Now there is the `putIfAbsent(key, person)` method which will
 not erase an existing person, but will put a new person if none
@@ -232,3 +234,35 @@ exists in the map.
     }
 ```
 * Will not erase an existing person.
+---
+
+* Method `replace()`
+* Replaces an existing person.
+* Replaces the value associated with the given key.
+
+```java
+    public Map<Integer, Person> replacePerson(Map<Integer, Person> person) {
+        person.replace(1, new Person("Artemas", "Muzanenhamo"));
+        return person;
+    }
+```
+* We can also use the `replace(key, oldPerson, newPerson)`.
+
+```java
+    public Map<Integer, Person> replaceOldPersonWithNewPerson(Map<Integer, Person> person) {
+        person.replace(1, person.get(1),  new Person("Artemas", "Muzanenhamo"));
+        return person;
+    }
+```
+* We also have a `replaceAll((key, oldPerson) -> newPerson)`
+* Applies the remapping function to all the existing key/person pairs.
+
+```java
+    public Map<Integer, Person> replaceAllPeople(Map<Integer, Person> person) {
+        person.replaceAll( (key, oldPerson) -> new Person("Artemas", "Muzanenhamo") );
+        return person;
+    }
+```
+
+---
+* Method `remove()`

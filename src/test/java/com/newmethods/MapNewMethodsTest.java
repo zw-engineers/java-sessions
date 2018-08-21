@@ -48,4 +48,49 @@ class MapNewMethodsTest {
         assertEquals(expectedMap, mapNewMethods.getPeople());
     }
 
+    @Test
+    void shouldReturnAMapWithANewPerson(){
+        Person person = new Person("Artemas", "Muzanenhamo");
+        Map<Integer, Person> expectedPerson = new HashMap<>();
+        expectedPerson.put(1, person);
+
+        Person person1 = new Person("Thomas", "Jefferson");
+        Map<Integer, Person> replacedPerson = new HashMap<>();
+        replacedPerson.put(1, person1);
+
+        assertEquals(expectedPerson, mapNewMethods.replacePerson(replacedPerson));
+    }
+
+    @Test
+    void shouldReturnAMapWithANewPerson2(){
+        Person person = new Person("Artemas", "Muzanenhamo");
+        Map<Integer, Person> expectedPerson = new HashMap<>();
+        expectedPerson.put(1, person);
+
+        Person person1 = new Person("Thomas", "Jefferson");
+        Map<Integer, Person> replacedPerson = new HashMap<>();
+        replacedPerson.put(1, person1);
+
+        assertEquals(expectedPerson, mapNewMethods.replaceOldPersonWithNewPerson(replacedPerson));
+    }
+
+    @Test
+    void shouldReplaceAllPeopleInTheMap(){
+        Person person = new Person("Artemas", "Muzanenhamo");
+        Map<Integer, Person> expectedPerson = new HashMap<>();
+        expectedPerson.put(1, person);
+        expectedPerson.put(2, person);
+        expectedPerson.put(3, person);
+
+        Person person1 = new Person("Thomas", "Jefferson");
+        Person person2 = new Person("Will", "Smith");
+        Person person3 = new Person("John", "Doe");
+        Map<Integer, Person> replacedPerson = new HashMap<>();
+        replacedPerson.put(1, person1);
+        replacedPerson.put(2, person2);
+        replacedPerson.put(3, person3);
+
+        assertEquals(expectedPerson, mapNewMethods.replaceAllPeople(replacedPerson));
+    }
+
 }

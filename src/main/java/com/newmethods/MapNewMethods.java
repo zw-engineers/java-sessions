@@ -35,4 +35,19 @@ public class MapNewMethods {
 
         return personMap;
     }
+
+    public Map<Integer, Person> replacePerson(Map<Integer, Person> person) {
+        person.replace(1, new Person("Artemas", "Muzanenhamo"));
+        return person;
+    }
+
+    public Map<Integer, Person> replaceOldPersonWithNewPerson(Map<Integer, Person> person) {
+        person.replace(1, person.get(1),  new Person("Artemas", "Muzanenhamo"));
+        return person;
+    }
+
+    public Map<Integer, Person> replaceAllPeople(Map<Integer, Person> person) {
+        person.replaceAll( (key, oldPerson) -> new Person("Artemas", "Muzanenhamo") );
+        return person;
+    }
 }
