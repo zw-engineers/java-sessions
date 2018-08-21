@@ -55,4 +55,9 @@ public class MapNewMethods {
         people.remove(key);
         return people;
     }
+
+    public Map<Integer, Person> removeAPersonWithValue(int key, Map<Integer, Person> people) {
+        people.remove(key, people.get(key));
+        return people;
+    }
 }

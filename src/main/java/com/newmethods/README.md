@@ -265,4 +265,17 @@ exists in the map.
 ```
 
 ---
-* Method `remove()`
+* Method `remove()` 
+```java
+    // JDK 7
+    public Map<Integer, Person> removeAPerson(int key, Map<Integer, Person> people) {
+        people.remove(key);
+        return people;
+    }
+    
+    // JDK 8
+    public Map<Integer, Person> removeAPersonWithValue(int key, Map<Integer, Person> people) {
+        people.remove(key, people.get(key));
+        return people;
+    }
+```
