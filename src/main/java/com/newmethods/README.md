@@ -279,3 +279,15 @@ exists in the map.
         return people;
     }
 ```
+---
+
+* Method `merge()`.
+* Associates a key not present in the map, or associated to a null value to a new value.
+
+```java
+    public Map<Integer, Person> mergePeople(Map<Integer, Person> people) {
+        people.merge(3, people.get(3), (key, person) -> new Person("John", "Doe"));
+        people.merge(4, people.getOrDefault(4, new Person("Lebron", "James")), (key, person) -> new Person("Lebron", "James"));
+        return people;
+    }
+```

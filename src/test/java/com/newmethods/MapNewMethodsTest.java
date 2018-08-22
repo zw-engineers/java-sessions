@@ -127,4 +127,23 @@ class MapNewMethodsTest {
         assertEquals(expectedPeople, mapNewMethods.removeAPersonWithValue(2, people));
     }
 
+    @Test
+    void shouldReturnAMergedMap(){
+        Person person1 = new Person("Thomas", "Jefferson");
+        Person person2 = new Person("Will", "Smith");
+        Person person3 = new Person(null, null);
+        Map<Integer, Person> people = new HashMap<>();
+        people.put(1, person1);
+        people.put(2, person2);
+        people.put(3, person3);
+
+        Map<Integer, Person> expectedPeople = new HashMap<>();
+        expectedPeople.put(1, person1);
+        expectedPeople.put(2, person2);
+        expectedPeople.put(3, new Person("John", "Doe"));
+        expectedPeople.put(4, new Person("Lebron", "James"));
+
+        assertEquals(expectedPeople, mapNewMethods.mergePeople(people));
+    }
+
 }

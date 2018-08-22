@@ -60,4 +60,10 @@ public class MapNewMethods {
         people.remove(key, people.get(key));
         return people;
     }
+
+    public Map<Integer, Person> mergePeople(Map<Integer, Person> people) {
+        people.merge(3, people.get(3), (key, person) -> new Person("John", "Doe"));
+        people.merge(4, people.getOrDefault(4, new Person("Lebron", "James")), (key, person) -> new Person("Lebron", "James"));
+        return people;
+    }
 }
