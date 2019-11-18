@@ -7,7 +7,7 @@ notifications:
     rooms:
       - pictopage:GgJNEnLcl4annmdzEwdCVbqY#random
 
-script: "mvn cobertura:cobertura"
+script: "mvn clean install"
 
 
 after_success:
