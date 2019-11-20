@@ -18,5 +18,4 @@ class StreamTest {
 
         assertThat(valueStream).isEmpty(); // Bare in mind that Empty != null...
     }
-
 }
