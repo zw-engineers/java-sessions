@@ -8,18 +8,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class FunctionalInDepthTest {
+class CapitaliseNamesTest {
 
     private static final String ARTEMAS = "artemas";
     private static final String SARAH = "sarah";
     private static final String TOM = "tom";
     private static final String HARRY = "harry";
     private static final String MARTHA = "martha";
-    private FunctionalInDepth functionalInDepth;
+    private CapitaliseNames capitaliseNames;
 
     @BeforeEach
     void setup() {
-        functionalInDepth = new FunctionalInDepth();
+        capitaliseNames = new CapitaliseNames();
     }
 
     @Test
@@ -27,7 +27,7 @@ class FunctionalInDepthTest {
     void returnAllNamesInListAsUppercase() {
         List<String> names = List.of(ARTEMAS, SARAH, TOM, HARRY, MARTHA);
 
-        List<String> capitalisedNames = functionalInDepth.getNamesCapitalised(names);
+        List<String> capitalisedNames = capitaliseNames.getNamesCapitalised(names);
 
         assertThat(capitalisedNames).isNotEmpty();
         assertThat(capitalisedNames).hasSize(5);
@@ -37,7 +37,7 @@ class FunctionalInDepthTest {
     @Test
     @DisplayName("Should return an empty list if names list is null")
     void returnEmptyListWhenNamesIsNull() {
-        List<String> capitalisedNames = functionalInDepth.getNamesCapitalised(null);
+        List<String> capitalisedNames = capitaliseNames.getNamesCapitalised(null);
 
         assertThat(capitalisedNames).isEmpty();
     }
@@ -47,7 +47,7 @@ class FunctionalInDepthTest {
     void returnNonNullNames() {
         List<String> names = List.of(ARTEMAS, SARAH, null, HARRY, MARTHA);
 
-        List<String> capitalisedNames = functionalInDepth.getNamesCapitalised(names);
+        List<String> capitalisedNames = capitaliseNames.getNamesCapitalised(names);
 
         assertThat(capitalisedNames).isNotEmpty();
         assertThat(capitalisedNames).hasSize(4);

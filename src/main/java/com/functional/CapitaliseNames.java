@@ -6,7 +6,7 @@ import io.vavr.control.Option;
 import java.util.Objects;
 
 
-class FunctionalInDepth {
+class CapitaliseNames {
 
     List<String> getNamesCapitalised(List<String> names) {
         // In Java 8 streams...
