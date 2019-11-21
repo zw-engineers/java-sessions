@@ -43,7 +43,7 @@ class FunctionalInDepthTest {
     }
 
     @Test
-    @DisplayName("Should return list of non null value names")
+    @DisplayName("Should return all non null names in uppercase")
     void returnNonNullNames() {
         List<String> names = List.of(ARTEMAS, SARAH, null, HARRY, MARTHA);
 
@@ -51,5 +51,6 @@ class FunctionalInDepthTest {
 
         assertThat(capitalisedNames).isNotEmpty();
         assertThat(capitalisedNames).hasSize(4);
+        assertThat(capitalisedNames).containsExactly("ARTEMAS", "SARAH", "HARRY", "MARTHA");
     }
 }
