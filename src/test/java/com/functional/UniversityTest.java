@@ -31,7 +31,7 @@ class UniversityTest {
                 new Student("kobe", "bryant")
         );
 
-        List<Degree> degrees = university.assignDegreeToStudents(students);
+        List<Degree> degrees = university.assignToCompScienceDegree(students);
 
         assertThat(degrees).isNotEmpty();
         assertThat(degrees).hasSize(4);
