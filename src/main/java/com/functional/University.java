@@ -26,6 +26,7 @@ class University {
     }
 
     List<Student> getAllStudents(List<Student> students) {
+        // no more null checks :D
         return Option.of(students)
                 .getOrElse(List::empty);
     }
