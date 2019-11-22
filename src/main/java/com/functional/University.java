@@ -7,7 +7,7 @@ class University {
     List<Degree> assignToCompScienceDegree(List<Student> students) {
         return students
                 .stream()
-                .map(e -> new Degree("computer science", e, new Tutor("thomas", "jenkins")))
+                .map(student -> new Degree("computer science", student, new Tutor("thomas", "jenkins")))
                 .peek(System.out::println)
                 .collect(Collectors.toList());
     }

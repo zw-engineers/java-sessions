@@ -35,6 +35,6 @@ class UniversityTest {
 
         assertThat(degrees).isNotEmpty();
         assertThat(degrees).hasSize(4);
-        assertThat(degrees).containsAnyOf(student1);
+        assertThat(degrees).containsExactly(student1, student2, student3, student4);
     }
 }
