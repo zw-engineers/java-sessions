@@ -4,6 +4,7 @@ import io.vavr.collection.List;
 import io.vavr.control.Option;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 class University {
 
@@ -25,6 +26,10 @@ class University {
         return students
                 .filter(student -> Objects.nonNull(student.getTutor()))
                 .filter(student -> Objects.nonNull(student.getTutor().getName()))
-                .sortBy(student -> student.getTutor().getName());
+                .sortBy(studentTutor());
+    }
+
+    private Function<Student, String> studentTutor() {
+        return student -> student.getTutor().getName();
     }
 }

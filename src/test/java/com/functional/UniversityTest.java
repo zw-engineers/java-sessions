@@ -73,5 +73,7 @@ class UniversityTest {
         List<Student> allStudents = university.getAllStudentsSortedByTutor(students);
 
         assertThat(allStudents).isNotEmpty();
+        assertThat(allStudents).hasSize(4);
+        assertThat(allStudents).containsExactly(student6, student3, student2, student1);
     }
 }
