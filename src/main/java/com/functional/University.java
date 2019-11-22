@@ -5,6 +5,7 @@ import io.vavr.control.Option;
 
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 class University {
 
@@ -19,7 +20,11 @@ class University {
         return Option.of(students)
                 .getOrElse(List::empty)
                 .filter(Objects::nonNull)
-                .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
+                .filter(withSoftwareEngineeringDegree());
+    }
+
+    private Predicate<Student> withSoftwareEngineeringDegree() {
+        return student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle());
     }
 
     List<Student> getAllStudentsSortedByTutor(List<Student> students) {
