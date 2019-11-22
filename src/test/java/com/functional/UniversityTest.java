@@ -5,16 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UniversityTest {
 
     private University university;
-    private static final Degree degree1 = new Degree("computer science", new Student("artemas", "muzanenhamo"), new Tutor("thomas", "jenkins"));
-    private static final Degree degree2 = new Degree("computer science", new Student("kevin", "hart"), new Tutor("thomas", "jenkins"));
-    private static final Degree degree3 = new Degree("computer science", new Student("lebron", "james"), new Tutor("thomas", "jenkins"));
-    private static final Degree degree4 = new Degree("computer science", new Student("kobe", "bryant"), new Tutor("thomas", "jenkins"));
+    private final static Student student1 = new Student("artemas", "muzanenhamo", new Degree("software engineering"), new Tutor("thomas", "jenkins"));
+    private final static Student student2 = new Student("sarah", "smith", new Degree("bio chemistry"), new Tutor("lebron", "james"));
+    private final static Student student3 = new Student("bode", "ade", new Degree("business management"), new Tutor("kobe", "bryant"));
+    private final static Student student4 = new Student("mary", "stevens", new Degree("software engineering"), new Tutor("thomas", "jenkins"));
 
     @BeforeEach
     void setup() {
@@ -22,19 +21,15 @@ class UniversityTest {
     }
 
     @Test
-    @DisplayName("Should return Students assigned to a degree")
+    @DisplayName("Should return all students with their degree and tutor")
     void getAllStudents() {
-        List<Student> students = List.of(
-                new Student("artemas", "muzanenhamo"),
-                new Student("kevin", "hart"),
-                new Student("lebron", "james"),
-                new Student("kobe", "bryant")
-        );
+        List<Student> students = List.of(student1, student2, student3, student4);
 
-        List<Degree> degrees = university.assignToCompScienceDegree(students);
+        List<Student> allStudents = university.getAllStudentsSortedByFirstName(students);
 
-        assertThat(degrees).isNotEmpty();
-        assertThat(degrees).hasSize(4);
-        assertThat(degrees).containsExactly(degree1, degree2, degree3, degree4);
+        assertThat(allStudents).isNotEmpty();
+        assertThat(allStudents).containsExactly(student1, student3, student4, student2);
     }
+
+
 }
