@@ -15,19 +15,9 @@ class University {
     }
 
     List<Student> getAllSoftwareEngineeringStudents(List<Student> students) {
-        return students
-                .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
-    }
-
-    List<Student> getAllNonNullSoftwareEngineeringStudents(List<Student> students) {
-        return students
+        return Option.of(students)
+                .getOrElse(List::empty)
                 .filter(Objects::nonNull)
                 .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
-    }
-
-    List<Student> getAllStudents(List<Student> students) {
-        // no more null checks :D
-        return Option.of(students)
-                .getOrElse(List::empty);
     }
 }

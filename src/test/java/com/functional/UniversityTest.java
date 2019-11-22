@@ -48,7 +48,7 @@ class UniversityTest {
     void getAllNonNullSoftwareStudents() {
         List<Student> students = List.of(student1, student2, student3, null);
 
-        List<Student> allStudents = university.getAllNonNullSoftwareEngineeringStudents(students);
+        List<Student> allStudents = university.getAllSoftwareEngineeringStudents(students);
 
         assertThat(allStudents).isNotEmpty();
         assertThat(allStudents).hasSize(1);
@@ -58,7 +58,7 @@ class UniversityTest {
     @Test
     @DisplayName("Should return an empty list of students when the list of students is null")
     void returnEmptyListWhenStudentsListIsNull() {
-        List<Student> allStudents = university.getAllStudents(null);
+        List<Student> allStudents = university.getAllSoftwareEngineeringStudents(null);
 
         assertThat(allStudents).isEmpty();
     }
