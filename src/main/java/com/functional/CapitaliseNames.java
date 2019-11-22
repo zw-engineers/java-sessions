@@ -9,8 +9,12 @@ import java.util.Objects;
 class CapitaliseNames {
 
     List<String> getNamesCapitalised(List<String> names) {
-        // In Java 8 streams...
-//        names.stream().map(String::toUpperCase).collect(Collectors.toList());
+//          In Java 8 streams...
+
+//        Stream.ofNullable(names.toJavaList())
+//                .flatMap(Collection::stream)
+//                .map(String::toUpperCase)
+//                .collect(Collectors.toList());
 
         return Option.of(names)
                 .getOrElse(List::empty)
