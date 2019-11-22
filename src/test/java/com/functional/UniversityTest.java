@@ -31,5 +31,14 @@ class UniversityTest {
         assertThat(allStudents).containsExactly(student1, student3, student4, student2);
     }
 
+    @Test
+    @DisplayName("Should return all students studying Software Engineering")
+    void getAllSoftwareEngineeringStudents() {
+        List<Student> students = List.of(student1, student2, student3, student4);
 
+        List<Student> allStudents = university.getAllSoftwareEngineeringStudents(students);
+
+        assertThat(allStudents).isNotEmpty();
+        assertThat(allStudents).containsExactly(student1, student4);
+    }
 }
