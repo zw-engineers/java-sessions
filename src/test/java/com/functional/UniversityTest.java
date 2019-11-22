@@ -12,8 +12,10 @@ class UniversityTest {
     private University university;
     private final static Student student1 = new Student("artemas", "muzanenhamo", new Degree("software engineering"), new Tutor("thomas", "jenkins"));
     private final static Student student2 = new Student("sarah", "smith", new Degree("bio chemistry"), new Tutor("lebron", "james"));
-    private final static Student student3 = new Student("bode", "ade", new Degree("business management"), new Tutor("kobe", "bryant"));
-    private final static Student student4 = new Student("mary", "stevens", new Degree("software engineering"), new Tutor("thomas", "jenkins"));
+    private final static Student student3 = new Student("bode", null, new Degree("business management"), new Tutor("kobe", "bryant"));
+    private final static Student student4 = new Student("mary", "stevens", new Degree("software engineering"), new Tutor(null, "jenkins"));
+    private final static Student student5 = new Student(null, "johnson", new Degree("pure mathematics"), null);
+    private final static Student student6 = new Student("john-bosco", "adetoula", null, new Tutor("carmelo", "anthony"));
 
     @BeforeEach
     void setup() {
@@ -61,5 +63,15 @@ class UniversityTest {
         List<Student> allStudents = university.getAllSoftwareEngineeringStudents(null);
 
         assertThat(allStudents).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Should return all students with a valid tutor")
+    void returnAllStudentsWithOrderedByTutor() {
+        List<Student> students = List.of(student1, student2, student3, student4, student5, student6);
+
+        List<Student> allStudents = university.getAllStudentsSortedByTutor(students);
+
+        assertThat(allStudents).isNotEmpty();
     }
 }

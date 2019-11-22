@@ -20,4 +20,11 @@ class University {
                 .filter(Objects::nonNull)
                 .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
     }
+
+    List<Student> getAllStudentsSortedByTutor(List<Student> students) {
+        return students
+                .filter(student -> Objects.nonNull(student.getTutor()))
+                .filter(student -> Objects.nonNull(student.getTutor().getName()))
+                .sortBy(student -> student.getTutor().getName());
+    }
 }
