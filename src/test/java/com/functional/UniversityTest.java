@@ -39,6 +39,27 @@ class UniversityTest {
         List<Student> allStudents = university.getAllSoftwareEngineeringStudents(students);
 
         assertThat(allStudents).isNotEmpty();
+        assertThat(allStudents).hasSize(2);
         assertThat(allStudents).containsExactly(student1, student4);
+    }
+
+    @Test
+    @DisplayName("Should return all non null students studying Software Engineering")
+    void getAllNonNullSoftwareStudents() {
+        List<Student> students = List.of(student1, student2, student3, null);
+
+        List<Student> allStudents = university.getAllNonNullSoftwareEngineeringStudents(students);
+
+        assertThat(allStudents).isNotEmpty();
+        assertThat(allStudents).hasSize(1);
+        assertThat(allStudents).containsExactly(student1);
+    }
+
+    @Test
+    @DisplayName("Should return an empty list of students when the list of students is null")
+    void returnEmptyListWhenStudentsListIsNull() {
+        List<Student> allStudents = university.getAllStudents(null);
+
+        assertThat(allStudents).isEmpty();
     }
 }

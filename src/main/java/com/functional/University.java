@@ -1,6 +1,9 @@
 package com.functional;
 
 import io.vavr.collection.List;
+import io.vavr.control.Option;
+
+import java.util.Objects;
 
 class University {
 
@@ -14,5 +17,16 @@ class University {
     List<Student> getAllSoftwareEngineeringStudents(List<Student> students) {
         return students
                 .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
+    }
+
+    List<Student> getAllNonNullSoftwareEngineeringStudents(List<Student> students) {
+        return students
+                .filter(Objects::nonNull)
+                .filter(student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle()));
+    }
+
+    List<Student> getAllStudents(List<Student> students) {
+        return Option.of(students)
+                .getOrElse(List::empty);
     }
 }
