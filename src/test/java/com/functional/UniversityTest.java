@@ -11,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UniversityTest {
 
     private University university;
-    private static final Degree student1 = new Degree("computer science", new Student("artemas", "muzanenhamo"), new Tutor("thomas", "jenkins"));
-    private static final Degree student2 = new Degree("computer science", new Student("kevin", "hart"), new Tutor("thomas", "jenkins"));
-    private static final Degree student3 = new Degree("computer science", new Student("lebron", "james"), new Tutor("thomas", "jenkins"));
-    private static final Degree student4 = new Degree("computer science", new Student("kobe", "bryant"), new Tutor("thomas", "jenkins"));
+    private static final Degree degree1 = new Degree("computer science", new Student("artemas", "muzanenhamo"), new Tutor("thomas", "jenkins"));
+    private static final Degree degree2 = new Degree("computer science", new Student("kevin", "hart"), new Tutor("thomas", "jenkins"));
+    private static final Degree degree3 = new Degree("computer science", new Student("lebron", "james"), new Tutor("thomas", "jenkins"));
+    private static final Degree degree4 = new Degree("computer science", new Student("kobe", "bryant"), new Tutor("thomas", "jenkins"));
 
     @BeforeEach
     void setup() {
@@ -35,6 +35,6 @@ class UniversityTest {
 
         assertThat(degrees).isNotEmpty();
         assertThat(degrees).hasSize(4);
-        assertThat(degrees).containsExactly(student1, student2, student3, student4);
+        assertThat(degrees).containsExactly(degree1, degree2, degree3, degree4);
     }
 }
