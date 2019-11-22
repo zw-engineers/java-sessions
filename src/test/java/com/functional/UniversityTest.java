@@ -1,5 +1,8 @@
 package com.functional;
 
+import com.functional.domain.Degree;
+import com.functional.domain.Student;
+import com.functional.domain.Tutor;
 import io.vavr.collection.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

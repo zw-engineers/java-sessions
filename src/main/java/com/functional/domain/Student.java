@@ -1,4 +1,4 @@
-package com.functional;
+package com.functional.domain;
 
 import java.util.Objects;
 

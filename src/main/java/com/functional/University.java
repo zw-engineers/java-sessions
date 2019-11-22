@@ -1,5 +1,6 @@
 package com.functional;
 
+import com.functional.domain.Student;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 
