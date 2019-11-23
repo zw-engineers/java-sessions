@@ -21,10 +21,10 @@ class University {
         return Option.of(students)
                 .getOrElse(List::empty)
                 .filter(Objects::nonNull)
-                .filter(withSoftwareEngineeringDegree());
+                .filter(hasSoftwareEngineeringDegree());
     }
 
-    private Predicate<Student> withSoftwareEngineeringDegree() {
+    private Predicate<Student> hasSoftwareEngineeringDegree() {
         return student -> SOFTWARE_ENGINEERING.equals(student.getDegree().getTitle());
     }
 
