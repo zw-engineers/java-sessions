@@ -36,32 +36,32 @@ public class MapNewMethods {
         return personMap;
     }
 
-    public Map<Integer, Person> replacePerson(Map<Integer, Person> person) {
+    Map<Integer, Person> replacePerson(Map<Integer, Person> person) {
         person.replace(1, new Person("Artemas", "Muzanenhamo"));
         return person;
     }
 
-    public Map<Integer, Person> replaceOldPersonWithNewPerson(Map<Integer, Person> person) {
+    Map<Integer, Person> replaceOldPersonWithNewPerson(Map<Integer, Person> person) {
         person.replace(1, person.get(1),  new Person("Artemas", "Muzanenhamo"));
         return person;
     }
 
-    public Map<Integer, Person> replaceAllPeople(Map<Integer, Person> person) {
+    Map<Integer, Person> replaceAllPeople(Map<Integer, Person> person) {
         person.replaceAll( (key, oldPerson) -> new Person("Artemas", "Muzanenhamo") );
         return person;
     }
 
-    public Map<Integer, Person> removeAPerson(int key, Map<Integer, Person> people) {
+    Map<Integer, Person> removeAPerson(int key, Map<Integer, Person> people) {
         people.remove(key);
         return people;
     }
 
-    public Map<Integer, Person> removeAPersonWithValue(int key, Map<Integer, Person> people) {
+    Map<Integer, Person> removeAPersonWithValue(int key, Map<Integer, Person> people) {
         people.remove(key, people.get(key));
         return people;
     }
 
-    public Map<Integer, Person> mergePeople(Map<Integer, Person> people) {
+    Map<Integer, Person> mergePeople(Map<Integer, Person> people) {
         people.merge(3, people.get(3), (key, person) -> new Person("John", "Doe"));
         people.merge(4, people.getOrDefault(4, new Person("Lebron", "James")), (key, person) -> new Person("Lebron", "James"));
         return people;
