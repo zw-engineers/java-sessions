@@ -9,18 +9,18 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IterableNewMethodTest {
+class IterableNewMethodTest {
 
     private IterableNewMethod iterableNewMethod;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         iterableNewMethod = new IterableNewMethod();
     }
 
     @Test
     @DisplayName("Should return names in upper case")
-    public void shouldReturnNamesInUpperCase() {
+    void shouldReturnNamesInUpperCase() {
         List<String> expectedList = Arrays.asList("ARTEMAS", "THOMAS", "BOB");
 
         List<String> namesUpperCased = iterableNewMethod.names();

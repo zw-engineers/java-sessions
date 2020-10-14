@@ -1,12 +1,13 @@
 package com.newmethods;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ListNewMethodTest {
 
@@ -18,9 +19,13 @@ class ListNewMethodTest {
     }
 
     @Test
-    public void shouldReturnAListOfSortedStrings(){
-        List<String> expectedList = Arrays.asList("four", "one", "three", "two");
-        assertEquals(expectedList, listNewMethod.sortedList());
+    @DisplayName("Should return a list of strings sorted by alphabet")
+    void shouldReturnAListOfSortedStrings(){
+        List<String> strings = Arrays.asList("one", "two", "three", "four");
+        
+        List<String> sortedStrings = listNewMethod.sortedList(strings);
+
+        assertThat(sortedStrings).containsExactly("four", "one", "three", "two");
     }
 
 }
