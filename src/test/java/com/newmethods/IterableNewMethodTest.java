@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class IterableNewMethodTest {
 
@@ -22,6 +22,9 @@ public class IterableNewMethodTest {
     @DisplayName("Should return names in upper case")
     public void shouldReturnNamesInUpperCase() {
         List<String> expectedList = Arrays.asList("ARTEMAS", "THOMAS", "BOB");
-        assertEquals(expectedList, iterableNewMethod.names());
+
+        List<String> namesUpperCased = iterableNewMethod.names();
+
+        assertThat(namesUpperCased).isEqualTo(expectedList);
     }
 }
