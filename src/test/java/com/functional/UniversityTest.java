@@ -32,8 +32,9 @@ class UniversityTest {
 
         List<Student> allStudents = university.getAllStudentsSortedByFirstName(students);
 
-        assertThat(allStudents).isNotEmpty();
-        assertThat(allStudents).containsExactly(student1, student3, student4, student2);
+        assertThat(allStudents)
+                .isNotEmpty()
+                .containsExactly(student1, student3, student4, student2);
     }
 
     @Test
@@ -43,9 +44,10 @@ class UniversityTest {
 
         List<Student> allStudents = university.getAllSoftwareEngineeringStudents(students);
 
-        assertThat(allStudents).isNotEmpty();
-        assertThat(allStudents).hasSize(2);
-        assertThat(allStudents).containsExactly(student1, student4);
+        assertThat(allStudents)
+                .isNotEmpty()
+                .hasSize(2)
+                .containsExactly(student1, student4);
     }
 
     @Test
@@ -55,9 +57,10 @@ class UniversityTest {
 
         List<Student> allStudents = university.getAllSoftwareEngineeringStudents(students);
 
-        assertThat(allStudents).isNotEmpty();
-        assertThat(allStudents).hasSize(1);
-        assertThat(allStudents).containsExactly(student1);
+        assertThat(allStudents)
+                .isNotEmpty()
+                .hasSize(1)
+                .containsExactly(student1);
     }
 
     @Test
@@ -75,8 +78,9 @@ class UniversityTest {
 
         List<Student> allStudents = university.getAllStudentsSortedByTutor(students);
 
-        assertThat(allStudents).isNotEmpty();
-        assertThat(allStudents).hasSize(4);
-        assertThat(allStudents).containsExactly(student6, student3, student2, student1);
+        assertThat(allStudents)
+                .isNotEmpty()
+                .hasSize(4)
+                .containsExactly(student6, student3, student2, student1);
     }
 }

@@ -21,9 +21,10 @@ class FunctionalProgrammingTest {
     void zipFunctionWithJavaStreams() {
         List<String> mappedAgesToNames = mapNamesToAgesWithJavaStreams(names, ages);
 
-        assertThat(mappedAgesToNames).isNotEmpty();
-        assertThat(mappedAgesToNames).hasSize(4);
-        assertThat(mappedAgesToNames).containsExactly(NAMES_WITH_AGES);
+        assertThat(mappedAgesToNames)
+                .isNotEmpty()
+                .hasSize(4)
+                .containsExactly(NAMES_WITH_AGES);
     }
 
     @Test
@@ -31,8 +32,9 @@ class FunctionalProgrammingTest {
     void zipFunctionWithGuava() {
         List<String> mappedAgesToNames = mapNamesToAgesWithGuavaStreams(names, ages);
 
-        assertThat(mappedAgesToNames).isNotEmpty();
-        assertThat(mappedAgesToNames).hasSize(4);
-        assertThat(mappedAgesToNames).containsExactly(NAMES_WITH_AGES);
+        assertThat(mappedAgesToNames)
+                .isNotEmpty()
+                .hasSize(4)
+                .containsExactly(NAMES_WITH_AGES);
     }
 }

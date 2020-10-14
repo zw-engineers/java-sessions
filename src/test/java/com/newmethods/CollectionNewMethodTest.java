@@ -1,15 +1,15 @@
 package com.newmethods;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CollectionNewMethodTest {
 
@@ -21,21 +21,26 @@ class CollectionNewMethodTest {
     }
 
     @Test
+    @DisplayName("Should return a list of size 3 when an element is removed")
     public void shouldReturnAListOfSize3WhenAnElementIsRemoved() {
         Collection<String> expectedStrings = Arrays.asList("one", "two", "four");
         Collection<String> list = new ArrayList<>(expectedStrings);
-        assertAll(
-                () -> assertEquals(list, collectionNewMethod.removeElement()),
-                () -> assertEquals(list.size(), collectionNewMethod.removeElement().size())
-        );
+        
+        Collection<String> strings = collectionNewMethod.removeElement();
+
+        assertThat(strings).isEqualTo(list)
+                .hasSize(list.size());
 
     }
 
     @Test
+    @DisplayName("Should return list of strings capitalised")
     public void shouldReturnListCapitalised() {
-        List<String> expectedList = Arrays.asList("one", "two", "four");
-        expectedList = expectedList.stream().map(e -> e.toUpperCase()).collect(Collectors.toList());
-        assertEquals(expectedList, collectionNewMethod.toUpperCase(expectedList));
+        List<String> listOfStrings = Arrays.asList("one", "two", "three");
+
+        List<String> stringsUpperCased = collectionNewMethod.toUpperCase(listOfStrings);
+
+        assertThat(stringsUpperCased).containsExactly("ONE", "TWO", "THREE");
     }
 
 }

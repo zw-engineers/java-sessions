@@ -29,9 +29,10 @@ class CapitaliseNamesTest {
 
         List<String> capitalisedNames = capitaliseNames.getNamesCapitalised(names);
 
-        assertThat(capitalisedNames).isNotEmpty();
-        assertThat(capitalisedNames).hasSize(5);
-        assertThat(capitalisedNames).containsExactly("ARTEMAS", "SARAH", "TOM", "HARRY", "MARTHA");
+        assertThat(capitalisedNames)
+                .isNotEmpty()
+                .hasSize(5)
+                .containsExactly("ARTEMAS", "SARAH", "TOM", "HARRY", "MARTHA");
     }
 
     @Test
@@ -49,8 +50,9 @@ class CapitaliseNamesTest {
 
         List<String> capitalisedNames = capitaliseNames.getNamesCapitalised(names);
 
-        assertThat(capitalisedNames).isNotEmpty();
-        assertThat(capitalisedNames).hasSize(4);
-        assertThat(capitalisedNames).containsExactly("ARTEMAS", "SARAH", "HARRY", "MARTHA");
+        assertThat(capitalisedNames)
+                .isNotEmpty()
+                .hasSize(4)
+                .containsExactly("ARTEMAS", "SARAH", "HARRY", "MARTHA");
     }
 }

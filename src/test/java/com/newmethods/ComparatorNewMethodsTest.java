@@ -1,12 +1,13 @@
 package com.newmethods;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ComparatorNewMethodsTest {
 
@@ -18,12 +19,16 @@ class ComparatorNewMethodsTest {
     }
 
     @Test
-    public void shouldReturnAListOfAgesSorted(){
-        List<Person> expectedAgesInOrder = Arrays.asList(
+    @DisplayName("Should return a list of people sorted by name")
+    public void shouldReturnAListOfPeopleSorted(){
+        List<Person> people = Arrays.asList(
                 new Person("Thomas", "Jefferson"),
                 new Person("Artemas", "Muzanenhamo"),
                 new Person("Lemuel", "Muzanenhamo")
         );
-        assertEquals(expectedAgesInOrder, comparatorNewMethods.namesInOrder());
+        
+        List<Person> peopleSorted = comparatorNewMethods.namesInOrder(people);
+
+        assertThat(peopleSorted).isEqualTo(people);
     }
 }
