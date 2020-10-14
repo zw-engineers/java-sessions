@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ExampleIO {
+class ExampleIO {
 
-    public boolean doesFileExist (String fileLocation) {
+    boolean doesFileExist(String fileLocation) {
 
         // Java 7 : try with resources
         try (BufferedReader reader =
@@ -32,7 +32,7 @@ public class ExampleIO {
         return false;
     }
 
-    public boolean doesFileExists(String initialPathString, String... more) {
+    boolean doesFileExists(String initialPathString, String... more) {
         // Java 7 : try with resources and use of Paths
         Path path = Paths.get(initialPathString, more);
         try (Stream<String> stream = Files.lines(path)) {
@@ -46,7 +46,7 @@ public class ExampleIO {
         return false;
     }
 
-    public List<Path> directories(String pathDirectory) {
+    List<Path> directories(String pathDirectory) {
 
         List<Path> directories = new ArrayList<>();
         // Java 7 : try with resources and use of Paths
