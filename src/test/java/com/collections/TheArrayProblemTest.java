@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TheArrayProblemTest {
+class TheArrayProblemTest {
     @Test
     @DisplayName("Should return a new array with a new element")
-    public void should_return_a_new_array_with_a_new_element() {
+    void should_return_a_new_array_with_a_new_element() {
         Product door = new Product("Door", 35);
         Product floorPanel = new Product("Floor Panel", 25);
         Product window = new Product("Window", 10);
