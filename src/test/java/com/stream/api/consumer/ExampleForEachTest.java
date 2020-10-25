@@ -1,26 +1,27 @@
 package com.stream.api.consumer;
 
 import com.stream.api.Person;
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExampleForEachTest {
+class ExampleForEachTest {
 
     private ExampleForEach exampleForEach;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         exampleForEach = new ExampleForEach();
     }
 
     @Test
-    public void should_return_a_list_of_people_over_the_age_of_20() {
+    @DisplayName("Should return a list of people over the age of 20")
+    void should_return_a_list_of_people_over_the_age_of_20() {
         List<Person> people = Arrays.asList(
                 new Person("Tony", 10),
                 new Person("James", 25),
@@ -36,6 +37,6 @@ public class ExampleForEachTest {
                 new Person("Gemma", 18)
         );
 
-        Assertions.assertThat(exampleForEach.getOver20(people)).isEqualTo(expectedPeople);
+        assertThat(exampleForEach.getOver20(people)).isEqualTo(expectedPeople);
     }
 }
