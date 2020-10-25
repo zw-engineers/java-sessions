@@ -30,7 +30,7 @@ public class ExamplePredicate {
         // Print strings given the passed in predicate
         stream
                 .filter(predicate1.or(predicate2))
-                .forEach(s -> System.out.println(s));
+                .forEach(System.out::println);
 
     }
 
