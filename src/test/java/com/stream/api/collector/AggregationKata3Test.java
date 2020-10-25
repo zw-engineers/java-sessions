@@ -1,18 +1,20 @@
 package com.stream.api.collector;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class AggregationKata3Test {
+class AggregationKata3Test {
 
     private Student[] students;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
 
         //Generate a basic array of students:
         Student galina = new Student("Galina", 95, "Philology", Student.Gender.FEMALE);
@@ -22,11 +24,12 @@ public class AggregationKata3Test {
         Student jane = new Student("Jane", 65, "CS", Student.Gender.FEMALE);
 
         students = new Student[]{galina, anton, jack, mike, jane};
-        
+
     }
 
     @Test
-    public void basicTestGetStudentNamesByDepartment() throws Exception {
+    @DisplayName("Should get student names by department")
+    void basicTestGetStudentNamesByDepartment() {
 
         Map<String, List<String>> actual = AggregationKata3.getStudentNamesByDepartment(Arrays.stream(students));
         List<String> list1 = new ArrayList<>(Arrays.asList("Galina", "Jack", "Mike"));
@@ -38,5 +41,5 @@ public class AggregationKata3Test {
         assertEquals(expected, actual);
 
     }
-    
+
 }

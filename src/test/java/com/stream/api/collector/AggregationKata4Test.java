@@ -1,20 +1,22 @@
 package com.stream.api.collector;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.stream.api.collector.AggregationKata4.getTheNumberOfStudentsByGenderForEachDepartment;
 import static org.junit.Assert.assertEquals;
 
-public class AggregationKata4Test {
+class AggregationKata4Test {
 
     private Student[] students;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
 
         //Generate a basic array of students:
         Student galina = new Student("Galina", 95, "Philology", Student.Gender.FEMALE);
@@ -28,9 +30,10 @@ public class AggregationKata4Test {
     }
 
     @Test
-    public void basicTestGetTheNumberOfStudentsByGenderForEachDepartment() throws Exception {
+    @DisplayName("Should get the number of students by gender for each department")
+    void basicTestGetTheNumberOfStudentsByGenderForEachDepartment() {
 
-        Map<String, Map<Student.Gender, Long>> actual = AggregationKata4.getTheNumberOfStudentsByGenderForEachDepartment(Arrays.stream(students));
+        Map<String, Map<Student.Gender, Long>> actual = getTheNumberOfStudentsByGenderForEachDepartment(Arrays.stream(students));
         Map<String, Map<Student.Gender, Long>> expected = new HashMap<>();
         Map<Student.Gender, Long> map1 = new HashMap<>();
         Map<Student.Gender, Long> map2 = new HashMap<>();

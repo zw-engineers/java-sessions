@@ -1,6 +1,7 @@
 package com.stream.api.collector;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -29,7 +30,8 @@ class AggregationKata1Test {
     }
 
     @Test
-    void basicTestGetAverageGradeByDepartment() throws Exception {
+    @DisplayName("Should get average grade by department")
+    void basicTestGetAverageGradeByDepartment() {
 
         Map<String, Double> actual = AggregationKata1.getAverageGradeByDepartment(Arrays.stream(students));
         Map<String, Double> expected = new HashMap<>();
