@@ -1,14 +1,15 @@
 package com.stream.api.practice;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Student {
 
-    private int id;
-    private String name;
-    private String surname;
-    private List<String> subjects;
-    private int age;
+    private final int id;
+    private final String name;
+    private final String surname;
+    private final List<String> subjects;
+    private final int age;
 
 
     public Student(int id, String name, String surname, List<String> subjects, int age) {
@@ -43,24 +44,17 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Student student = (Student) o;
-
-        if (id != student.id) return false;
-        if (age != student.age) return false;
-        if (name != null ? !name.equals(student.name) : student.name != null) return false;
-        if (surname != null ? !surname.equals(student.surname) : student.surname != null) return false;
-        return subjects != null ? subjects.equals(student.subjects) : student.subjects == null;
+        return id == student.id &&
+                age == student.age &&
+                Objects.equals(name, student.name) &&
+                Objects.equals(surname, student.surname) &&
+                Objects.equals(subjects, student.subjects);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (subjects != null ? subjects.hashCode() : 0);
-        result = 31 * result + age;
-        return result;
+        return Objects.hash(id, name, surname, subjects, age);
     }
 
     @Override

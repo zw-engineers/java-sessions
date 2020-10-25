@@ -1,36 +1,39 @@
 package com.stream.api.optional;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ExampleOptionalTest {
+@DisplayName("Example Optional Test")
+class ExampleOptionalTest {
 
     private ExampleOptional exampleOptional;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         exampleOptional = new ExampleOptional();
     }
 
     @Test
-    public void should_return_an_empty_optional_when_null_value_is_passed() {
-        String str = null;
-        assertThat(exampleOptional.getOptional(str)).isEqualTo(Optional.empty());
+    @DisplayName("Should return an empty optional when null value is passed")
+    void should_return_an_empty_optional_when_null_value_is_passed() {
+        assertThat(exampleOptional.getOptional(null)).isEqualTo(Optional.empty());
     }
 
     @Test
-    public void should_return_0_as_a_default_value_when_optional_is_null() {
-        Integer integer = null;
-        assertThat(exampleOptional.getOptionalWithDefault(integer)).isEqualTo(0);
+    @DisplayName("Should return 0 as a default value when optional is null")
+    void should_return_0_as_a_default_value_when_optional_is_null() {
+        assertThat(exampleOptional.getOptionalWithDefault(null)).isEqualTo(0);
     }
 
-    @Test(expected = MyException.class)
-    public void should_throw_an_excetion_when_empty_value_is_passed() throws Exception {
-        Long longValue = null;
-        assertThat(exampleOptional.getOptionalWithException(longValue));
+    @Test
+    @DisplayName("Should throw an excetion when empty value is passed")
+    void should_throw_an_excetion_when_empty_value_is_passed() {
+        assertThrows(MyException.class, () -> assertThat(exampleOptional.getOptionalWithException(null)));
     }
 }
