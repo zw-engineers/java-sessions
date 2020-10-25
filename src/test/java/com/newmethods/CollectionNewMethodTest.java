@@ -22,10 +22,10 @@ class CollectionNewMethodTest {
 
     @Test
     @DisplayName("Should return a list of size 3 when an element is removed")
-    public void shouldReturnAListOfSize3WhenAnElementIsRemoved() {
+    void shouldReturnAListOfSize3WhenAnElementIsRemoved() {
         Collection<String> expectedStrings = Arrays.asList("one", "two", "four");
         Collection<String> list = new ArrayList<>(expectedStrings);
-        
+
         Collection<String> strings = collectionNewMethod.removeElement();
 
         assertThat(strings).isEqualTo(list)
@@ -35,7 +35,7 @@ class CollectionNewMethodTest {
 
     @Test
     @DisplayName("Should return list of strings capitalised")
-    public void shouldReturnListCapitalised() {
+    void shouldReturnListCapitalised() {
         List<String> listOfStrings = Arrays.asList("one", "two", "three");
 
         List<String> stringsUpperCased = collectionNewMethod.toUpperCase(listOfStrings);

@@ -20,13 +20,13 @@ class ComparatorNewMethodsTest {
 
     @Test
     @DisplayName("Should return a list of people sorted by name")
-    public void shouldReturnAListOfPeopleSorted(){
+    void shouldReturnAListOfPeopleSorted(){
         List<Person> people = Arrays.asList(
                 new Person("Thomas", "Jefferson"),
                 new Person("Artemas", "Muzanenhamo"),
                 new Person("Lemuel", "Muzanenhamo")
         );
-        
+
         List<Person> peopleSorted = comparatorNewMethods.namesInOrder(people);
 
         assertThat(peopleSorted).isEqualTo(people);

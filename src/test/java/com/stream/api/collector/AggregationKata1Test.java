@@ -1,7 +1,7 @@
 package com.stream.api.collector;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,12 +9,12 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class AggregationKata1Test {
+class AggregationKata1Test {
 
     private Student[] students;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
 
         //Generate a basic array of students:
         Student galina = new Student("Galina", 95, "Philology", Student.Gender.FEMALE);
@@ -29,7 +29,7 @@ public class AggregationKata1Test {
     }
 
     @Test
-    public void basicTestGetAverageGradeByDepartment() throws Exception {
+    void basicTestGetAverageGradeByDepartment() throws Exception {
 
         Map<String, Double> actual = AggregationKata1.getAverageGradeByDepartment(Arrays.stream(students));
         Map<String, Double> expected = new HashMap<>();
